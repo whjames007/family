@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.whcdit.family.mapper.SystemUserInfoMapper">
+  <resultMap id="BaseResultMap" type="com.whcdit.family.model.SystemUserInfo">
+    <id column="system_user_id" jdbcType="INTEGER" property="systemUserId" />
+    <result column="system_user_account" jdbcType="VARCHAR" property="systemUserAccount" />
+    <result column="system_user_type" jdbcType="VARCHAR" property="systemUserType" />
+    <result column="system_user_password" jdbcType="VARCHAR" property="systemUserPassword" />
+    <result column="system_user_nickname" jdbcType="VARCHAR" property="systemUserNickname" />
+    <result column="system_user_telephone" jdbcType="VARCHAR" property="systemUserTelephone" />
+    <result column="system_user_email" jdbcType="VARCHAR" property="systemUserEmail" />
+    <result column="system_role_id" jdbcType="INTEGER" property="systemRoleId" />
+    <result column="last_login_time" jdbcType="TIMESTAMP" property="lastLoginTime" />
+    <result column="first_create_by" jdbcType="INTEGER" property="firstCreateBy" />
+    <result column="first_create_date" jdbcType="TIMESTAMP" property="firstCreateDate" />
+    <result column="data_status" jdbcType="VARCHAR" property="dataStatus" />
+    <result column="data_divide_id" jdbcType="INTEGER" property="dataDivideId" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="last_update_by" jdbcType="INTEGER" property="lastUpdateBy" />
+    <result column="last_update_date" jdbcType="TIMESTAMP" property="lastUpdateDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    system_user_id, system_user_account, system_user_type, system_user_password, system_user_nickname, 
+    system_user_telephone, system_user_email, system_role_id, last_login_time, first_create_by, 
+    first_create_date, data_status, data_divide_id, description, last_update_by, last_update_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from system_user_info
+    where system_user_id = #{systemUserId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from system_user_info
+    where system_user_id = #{systemUserId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="system_user_id" keyProperty="systemUserId" parameterType="com.whcdit.family.model.SystemUserInfo" useGeneratedKeys="true">
+    insert into system_user_info (system_user_account, system_user_type, 
+      system_user_password, system_user_nickname, 
+      system_user_telephone, system_user_email, system_role_id, 
+      last_login_time, first_create_by, first_create_date, 
+      data_status, data_divide_id, description, 
+      last_update_by, last_update_date)
+    values (#{systemUserAccount,jdbcType=VARCHAR}, #{systemUserType,jdbcType=VARCHAR}, 
+      #{systemUserPassword,jdbcType=VARCHAR}, #{systemUserNickname,jdbcType=VARCHAR}, 
+      #{systemUserTelephone,jdbcType=VARCHAR}, #{systemUserEmail,jdbcType=VARCHAR}, #{systemRoleId,jdbcType=INTEGER}, 
+      #{lastLoginTime,jdbcType=TIMESTAMP}, #{firstCreateBy,jdbcType=INTEGER}, #{firstCreateDate,jdbcType=TIMESTAMP}, 
+      #{dataStatus,jdbcType=VARCHAR}, #{dataDivideId,jdbcType=INTEGER}, #{description,jdbcType=VARCHAR}, 
+      #{lastUpdateBy,jdbcType=INTEGER}, #{lastUpdateDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="system_user_id" keyProperty="systemUserId" parameterType="com.whcdit.family.model.SystemUserInfo" useGeneratedKeys="true">
+    insert into system_user_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="systemUserAccount != null">
+        system_user_account,
+      </if>
+      <if test="systemUserType != null">
+        system_user_type,
+      </if>
+      <if test="systemUserPassword != null">
+        system_user_password,
+      </if>
+      <if test="systemUserNickname != null">
+        system_user_nickname,
+      </if>
+      <if test="systemUserTelephone != null">
+        system_user_telephone,
+      </if>
+      <if test="systemUserEmail != null">
+        system_user_email,
+      </if>
+      <if test="systemRoleId != null">
+        system_role_id,
+      </if>
+      <if test="lastLoginTime != null">
+        last_login_time,
+      </if>
+      <if test="firstCreateBy != null">
+        first_create_by,
+      </if>
+      <if test="firstCreateDate != null">
+        first_create_date,
+      </if>
+      <if test="dataStatus != null">
+        data_status,
+      </if>
+      <if test="dataDivideId != null">
+        data_divide_id,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="lastUpdateBy != null">
+        last_update_by,
+      </if>
+      <if test="lastUpdateDate != null">
+        last_update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="systemUserAccount != null">
+        #{systemUserAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="systemUserType != null">
+        #{systemUserType,jdbcType=VARCHAR},
+      </if>
+      <if test="systemUserPassword != null">
+        #{systemUserPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="systemUserNickname != null">
+        #{systemUserNickname,jdbcType=VARCHAR},
+      </if>
+      <if test="systemUserTelephone != null">
+        #{systemUserTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="systemUserEmail != null">
+        #{systemUserEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="systemRoleId != null">
+        #{systemRoleId,jdbcType=INTEGER},
+      </if>
+      <if test="lastLoginTime != null">
+        #{lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="firstCreateBy != null">
+        #{firstCreateBy,jdbcType=INTEGER},
+      </if>
+      <if test="firstCreateDate != null">
+        #{firstCreateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dataStatus != null">
+        #{dataStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDivideId != null">
+        #{dataDivideId,jdbcType=INTEGER},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateBy != null">
+        #{lastUpdateBy,jdbcType=INTEGER},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.whcdit.family.model.SystemUserInfo">
+    update system_user_info
+    <set>
+      <if test="systemUserAccount != null">
+        system_user_account = #{systemUserAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="systemUserType != null">
+        system_user_type = #{systemUserType,jdbcType=VARCHAR},
+      </if>
+      <if test="systemUserPassword != null">
+        system_user_password = #{systemUserPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="systemUserNickname != null">
+        system_user_nickname = #{systemUserNickname,jdbcType=VARCHAR},
+      </if>
+      <if test="systemUserTelephone != null">
+        system_user_telephone = #{systemUserTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="systemUserEmail != null">
+        system_user_email = #{systemUserEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="systemRoleId != null">
+        system_role_id = #{systemRoleId,jdbcType=INTEGER},
+      </if>
+      <if test="lastLoginTime != null">
+        last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="firstCreateBy != null">
+        first_create_by = #{firstCreateBy,jdbcType=INTEGER},
+      </if>
+      <if test="firstCreateDate != null">
+        first_create_date = #{firstCreateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dataStatus != null">
+        data_status = #{dataStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDivideId != null">
+        data_divide_id = #{dataDivideId,jdbcType=INTEGER},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateBy != null">
+        last_update_by = #{lastUpdateBy,jdbcType=INTEGER},
+      </if>
+      <if test="lastUpdateDate != null">
+        last_update_date = #{lastUpdateDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where system_user_id = #{systemUserId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.whcdit.family.model.SystemUserInfo">
+    update system_user_info
+    set system_user_account = #{systemUserAccount,jdbcType=VARCHAR},
+      system_user_type = #{systemUserType,jdbcType=VARCHAR},
+      system_user_password = #{systemUserPassword,jdbcType=VARCHAR},
+      system_user_nickname = #{systemUserNickname,jdbcType=VARCHAR},
+      system_user_telephone = #{systemUserTelephone,jdbcType=VARCHAR},
+      system_user_email = #{systemUserEmail,jdbcType=VARCHAR},
+      system_role_id = #{systemRoleId,jdbcType=INTEGER},
+      last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
+      first_create_by = #{firstCreateBy,jdbcType=INTEGER},
+      first_create_date = #{firstCreateDate,jdbcType=TIMESTAMP},
+      data_status = #{dataStatus,jdbcType=VARCHAR},
+      data_divide_id = #{dataDivideId,jdbcType=INTEGER},
+      description = #{description,jdbcType=VARCHAR},
+      last_update_by = #{lastUpdateBy,jdbcType=INTEGER},
+      last_update_date = #{lastUpdateDate,jdbcType=TIMESTAMP}
+    where system_user_id = #{systemUserId,jdbcType=INTEGER}
+  </update>
+  
+  <select id="selectWithCondition" parameterType="com.whcdit.family.model.SystemUserInfo" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from system_user_info
+    <where>
+	    <if test="dataStatus != null">data_status = #{dataStatus,jdbcType=VARCHAR}</if>
+	    <if test="noid != null">AND system_user_id != #{systemUserId,jdbcType=INTEGER}</if>
+	    <if test="systemUserAccount != null">AND system_user_account = #{systemUserAccount,jdbcType=VARCHAR}</if>
+    </where>
+  </select>
+  
+  <select id="selectWithMorethan" parameterType="com.whcdit.family.model.SystemUserInfo" resultType="com.whcdit.family.model.SystemUserInfo">
+SELECT
+	b.system_role_name AS systemRoleName,
+	a.system_user_id AS systemUserId,
+	a.system_user_account AS systemUserAccount,
+	a.system_user_type AS systemUserType,
+	a.system_user_password AS systemUserPassword,
+	a.system_user_nickname AS systemUserNickname,
+	a.system_user_telephone AS systemUserTelephone,
+	a.system_user_email AS systemUserEmail,
+	a.system_role_id AS systemRoleId,
+	a.last_login_time AS lastLoginTime,
+	a.first_create_by AS firstCreateBy,
+	a.first_create_date AS firstCreateDate,
+	a.data_status AS dataStatus,
+	a.data_divide_id AS dataDivideId,
+	a.description AS description,
+	a.last_update_by AS lastUpdateBy,
+	a.last_update_date AS lastUpdateDate
+FROM
+	system_user_info a
+	JOIN system_role_info b ON a.system_role_id = b.system_role_id
+    <where>
+      a.system_user_id <![CDATA[ > ]]> 100
+      <if test="dataStatus != null">AND a.data_status = #{dataStatus,jdbcType=VARCHAR}</if>
+      <if test="systemUserAccount != null">AND a.system_user_account like CONCAT('%', #{systemUserAccount,jdbcType=VARCHAR}, '%')</if>
+      <if test="systemUserNickname != null">AND a.system_user_nickname like CONCAT('%', #{systemUserNickname,jdbcType=VARCHAR}, '%')</if>
+    </where>
+  </select>
+  
+</mapper>

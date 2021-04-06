@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC
+ "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+ "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+  <context id="simple" targetRuntime="MyBatis3">
+	<commentGenerator>
+		<property name="javaFileEncoding" value="UTF-8" />
+		<property name="suppressAllComments" value="true" />
+		<property name="suppressDate" value="true" />
+		<property name="addRemarkComments" value="true" />
+	</commentGenerator>
+		
+    <jdbcConnection connectionURL="jdbc:mysql://192.168.20.197:13306/bbb" driverClass="com.mysql.cj.jdbc.Driver" userId="root" password="aaa111"/>
+    <javaModelGenerator targetPackage="com.whcdit.family.model" targetProject="whcdit-family">
+		<property name="rootClass" value="com.whcdit.family.model.BaseModel"/>
+		<property name="trimStrings" value="fales" />
+	</javaModelGenerator>
+    <sqlMapGenerator targetPackage="com.whcdit.family.mapper" targetProject="whcdit-family"/>
+    <javaClientGenerator targetPackage="com.whcdit.family.mapper" targetProject="whcdit-family" type="XMLMAPPER"/>
+
+   	<table schema="bbb" tableName="family_account_record" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+		<property name="useActualColumnNames" value="false" />
+		<generatedKey column="account_record_id" sqlStatement="JDBC" />
+	</table>
+  </context>
+</generatorConfiguration>

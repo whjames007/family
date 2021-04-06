@@ -1,0 +1,29 @@
+// 本样式文件由/build/utils.js引用，在第66行
+// node-sass包安装时会漏掉vendor文件夹，需要手工建立后，再rebuild
+.wuhan-div-center {
+	display: flex; align-items: center; justify-content: center;
+}
+.wuhan-div-word {
+    text-indent: 2em; line-height: 28px;
+}
+.wuhan-div-form {
+    width: 30vw; padding: 30px 30px 0px 30px;
+}
+.wuhan-col-search {
+    padding: 0px 10px 0px 0px; display: flex; justify-content: flex-end;
+}
+$wuhanPrimaryColor: #409EFF;
+$wuhanColorDanger: #F56C6C;
+$wuhanColorSuccess: #67C23A;
+.wuhan-color-primary {
+    color: $wuhanPrimaryColor;
+}
+.wuhan-color-success {
+    color: $wuhanColorSuccess;
+}
+.wuhan-color-danger {
+    color: $wuhanColorDanger;
+}
+.wuhan-table {
+    text-align: center;
+}

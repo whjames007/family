@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.whcdit.family.mapper.FamilyMemberMapper">
+  <resultMap id="BaseResultMap" type="com.whcdit.family.model.FamilyMember">
+    <id column="family_member_id" jdbcType="INTEGER" property="familyMemberId" />
+    <result column="family_member_type" jdbcType="VARCHAR" property="familyMemberType" />
+    <result column="member_user_id" jdbcType="INTEGER" property="memberUserId" />
+    <result column="member_join_time" jdbcType="TIMESTAMP" property="memberJoinTime" />
+    <result column="family_info_id" jdbcType="INTEGER" property="familyInfoId" />
+    <result column="first_create_by" jdbcType="INTEGER" property="firstCreateBy" />
+    <result column="first_create_date" jdbcType="TIMESTAMP" property="firstCreateDate" />
+    <result column="data_status" jdbcType="VARCHAR" property="dataStatus" />
+    <result column="data_divide_id" jdbcType="INTEGER" property="dataDivideId" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="last_update_by" jdbcType="INTEGER" property="lastUpdateBy" />
+    <result column="last_update_date" jdbcType="TIMESTAMP" property="lastUpdateDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    family_member_id, family_member_type, member_user_id, member_join_time, family_info_id, 
+    first_create_by, first_create_date, data_status, data_divide_id, description, last_update_by, 
+    last_update_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from family_member
+    where family_member_id = #{familyMemberId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from family_member
+    where family_member_id = #{familyMemberId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="family_member_id" keyProperty="familyMemberId" parameterType="com.whcdit.family.model.FamilyMember" useGeneratedKeys="true">
+    insert into family_member (family_member_type, member_user_id, member_join_time, 
+      family_info_id, first_create_by, first_create_date, 
+      data_status, data_divide_id, description, 
+      last_update_by, last_update_date)
+    values (#{familyMemberType,jdbcType=VARCHAR}, #{memberUserId,jdbcType=INTEGER}, #{memberJoinTime,jdbcType=TIMESTAMP}, 
+      #{familyInfoId,jdbcType=INTEGER}, #{firstCreateBy,jdbcType=INTEGER}, #{firstCreateDate,jdbcType=TIMESTAMP}, 
+      #{dataStatus,jdbcType=VARCHAR}, #{dataDivideId,jdbcType=INTEGER}, #{description,jdbcType=VARCHAR}, 
+      #{lastUpdateBy,jdbcType=INTEGER}, #{lastUpdateDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="family_member_id" keyProperty="familyMemberId" parameterType="com.whcdit.family.model.FamilyMember" useGeneratedKeys="true">
+    insert into family_member
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="familyMemberType != null">
+        family_member_type,
+      </if>
+      <if test="memberUserId != null">
+        member_user_id,
+      </if>
+      <if test="memberJoinTime != null">
+        member_join_time,
+      </if>
+      <if test="familyInfoId != null">
+        family_info_id,
+      </if>
+      <if test="firstCreateBy != null">
+        first_create_by,
+      </if>
+      <if test="firstCreateDate != null">
+        first_create_date,
+      </if>
+      <if test="dataStatus != null">
+        data_status,
+      </if>
+      <if test="dataDivideId != null">
+        data_divide_id,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="lastUpdateBy != null">
+        last_update_by,
+      </if>
+      <if test="lastUpdateDate != null">
+        last_update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="familyMemberType != null">
+        #{familyMemberType,jdbcType=VARCHAR},
+      </if>
+      <if test="memberUserId != null">
+        #{memberUserId,jdbcType=INTEGER},
+      </if>
+      <if test="memberJoinTime != null">
+        #{memberJoinTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="familyInfoId != null">
+        #{familyInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="firstCreateBy != null">
+        #{firstCreateBy,jdbcType=INTEGER},
+      </if>
+      <if test="firstCreateDate != null">
+        #{firstCreateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dataStatus != null">
+        #{dataStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDivideId != null">
+        #{dataDivideId,jdbcType=INTEGER},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateBy != null">
+        #{lastUpdateBy,jdbcType=INTEGER},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.whcdit.family.model.FamilyMember">
+    update family_member
+    <set>
+      <if test="familyMemberType != null">
+        family_member_type = #{familyMemberType,jdbcType=VARCHAR},
+      </if>
+      <if test="memberUserId != null">
+        member_user_id = #{memberUserId,jdbcType=INTEGER},
+      </if>
+      <if test="memberJoinTime != null">
+        member_join_time = #{memberJoinTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="familyInfoId != null">
+        family_info_id = #{familyInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="firstCreateBy != null">
+        first_create_by = #{firstCreateBy,jdbcType=INTEGER},
+      </if>
+      <if test="firstCreateDate != null">
+        first_create_date = #{firstCreateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dataStatus != null">
+        data_status = #{dataStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDivideId != null">
+        data_divide_id = #{dataDivideId,jdbcType=INTEGER},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateBy != null">
+        last_update_by = #{lastUpdateBy,jdbcType=INTEGER},
+      </if>
+      <if test="lastUpdateDate != null">
+        last_update_date = #{lastUpdateDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where family_member_id = #{familyMemberId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.whcdit.family.model.FamilyMember">
+    update family_member
+    set family_member_type = #{familyMemberType,jdbcType=VARCHAR},
+      member_user_id = #{memberUserId,jdbcType=INTEGER},
+      member_join_time = #{memberJoinTime,jdbcType=TIMESTAMP},
+      family_info_id = #{familyInfoId,jdbcType=INTEGER},
+      first_create_by = #{firstCreateBy,jdbcType=INTEGER},
+      first_create_date = #{firstCreateDate,jdbcType=TIMESTAMP},
+      data_status = #{dataStatus,jdbcType=VARCHAR},
+      data_divide_id = #{dataDivideId,jdbcType=INTEGER},
+      description = #{description,jdbcType=VARCHAR},
+      last_update_by = #{lastUpdateBy,jdbcType=INTEGER},
+      last_update_date = #{lastUpdateDate,jdbcType=TIMESTAMP}
+    where family_member_id = #{familyMemberId,jdbcType=INTEGER}
+  </update>
+</mapper>

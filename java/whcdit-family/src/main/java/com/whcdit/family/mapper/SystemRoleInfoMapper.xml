@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.whcdit.family.mapper.SystemRoleInfoMapper">
+  <resultMap id="BaseResultMap" type="com.whcdit.family.model.SystemRoleInfo">
+    <id column="system_role_id" jdbcType="INTEGER" property="systemRoleId" />
+    <result column="system_role_name" jdbcType="VARCHAR" property="systemRoleName" />
+    <result column="system_role_desc" jdbcType="VARCHAR" property="systemRoleDesc" />
+    <result column="first_create_by" jdbcType="INTEGER" property="firstCreateBy" />
+    <result column="first_create_date" jdbcType="TIMESTAMP" property="firstCreateDate" />
+    <result column="data_status" jdbcType="VARCHAR" property="dataStatus" />
+    <result column="data_divide_id" jdbcType="INTEGER" property="dataDivideId" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="last_update_by" jdbcType="INTEGER" property="lastUpdateBy" />
+    <result column="last_update_date" jdbcType="TIMESTAMP" property="lastUpdateDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    system_role_id, system_role_name, system_role_desc, first_create_by, first_create_date, 
+    data_status, data_divide_id, description, last_update_by, last_update_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from system_role_info
+    where system_role_id = #{systemRoleId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from system_role_info
+    where system_role_id = #{systemRoleId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="system_role_id" keyProperty="systemRoleId" parameterType="com.whcdit.family.model.SystemRoleInfo" useGeneratedKeys="true">
+    insert into system_role_info (system_role_name, system_role_desc, first_create_by, 
+      first_create_date, data_status, data_divide_id, 
+      description, last_update_by, last_update_date
+      )
+    values (#{systemRoleName,jdbcType=VARCHAR}, #{systemRoleDesc,jdbcType=VARCHAR}, #{firstCreateBy,jdbcType=INTEGER}, 
+      #{firstCreateDate,jdbcType=TIMESTAMP}, #{dataStatus,jdbcType=VARCHAR}, #{dataDivideId,jdbcType=INTEGER}, 
+      #{description,jdbcType=VARCHAR}, #{lastUpdateBy,jdbcType=INTEGER}, #{lastUpdateDate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="system_role_id" keyProperty="systemRoleId" parameterType="com.whcdit.family.model.SystemRoleInfo" useGeneratedKeys="true">
+    insert into system_role_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="systemRoleName != null">
+        system_role_name,
+      </if>
+      <if test="systemRoleDesc != null">
+        system_role_desc,
+      </if>
+      <if test="firstCreateBy != null">
+        first_create_by,
+      </if>
+      <if test="firstCreateDate != null">
+        first_create_date,
+      </if>
+      <if test="dataStatus != null">
+        data_status,
+      </if>
+      <if test="dataDivideId != null">
+        data_divide_id,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="lastUpdateBy != null">
+        last_update_by,
+      </if>
+      <if test="lastUpdateDate != null">
+        last_update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="systemRoleName != null">
+        #{systemRoleName,jdbcType=VARCHAR},
+      </if>
+      <if test="systemRoleDesc != null">
+        #{systemRoleDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="firstCreateBy != null">
+        #{firstCreateBy,jdbcType=INTEGER},
+      </if>
+      <if test="firstCreateDate != null">
+        #{firstCreateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dataStatus != null">
+        #{dataStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDivideId != null">
+        #{dataDivideId,jdbcType=INTEGER},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateBy != null">
+        #{lastUpdateBy,jdbcType=INTEGER},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.whcdit.family.model.SystemRoleInfo">
+    update system_role_info
+    <set>
+      <if test="systemRoleName != null">
+        system_role_name = #{systemRoleName,jdbcType=VARCHAR},
+      </if>
+      <if test="systemRoleDesc != null">
+        system_role_desc = #{systemRoleDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="firstCreateBy != null">
+        first_create_by = #{firstCreateBy,jdbcType=INTEGER},
+      </if>
+      <if test="firstCreateDate != null">
+        first_create_date = #{firstCreateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dataStatus != null">
+        data_status = #{dataStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDivideId != null">
+        data_divide_id = #{dataDivideId,jdbcType=INTEGER},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateBy != null">
+        last_update_by = #{lastUpdateBy,jdbcType=INTEGER},
+      </if>
+      <if test="lastUpdateDate != null">
+        last_update_date = #{lastUpdateDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where system_role_id = #{systemRoleId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.whcdit.family.model.SystemRoleInfo">
+    update system_role_info
+    set system_role_name = #{systemRoleName,jdbcType=VARCHAR},
+      system_role_desc = #{systemRoleDesc,jdbcType=VARCHAR},
+      first_create_by = #{firstCreateBy,jdbcType=INTEGER},
+      first_create_date = #{firstCreateDate,jdbcType=TIMESTAMP},
+      data_status = #{dataStatus,jdbcType=VARCHAR},
+      data_divide_id = #{dataDivideId,jdbcType=INTEGER},
+      description = #{description,jdbcType=VARCHAR},
+      last_update_by = #{lastUpdateBy,jdbcType=INTEGER},
+      last_update_date = #{lastUpdateDate,jdbcType=TIMESTAMP}
+    where system_role_id = #{systemRoleId,jdbcType=INTEGER}
+  </update>
+  
+  <select id="selectWithCondition" parameterType="com.whcdit.family.model.SystemRoleInfo" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from system_role_info
+  </select>
+  
+</mapper>

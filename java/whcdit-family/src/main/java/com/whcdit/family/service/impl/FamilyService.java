@@ -128,4 +128,13 @@ public class FamilyService extends BaseService implements IFamilyService {
 		return pageInfo;
 	}
 
+	@Override
+	public FamilyMember join(FamilyMember param) {
+		super.settingWithInsert(param, "成功加入一个家族");
+		param.setFamilyMemberType(WuhanConstants.MEMBER);
+		param.setFirstCreateDate(new Date());
+		familyMemberMapper.insertSelective(param);
+		return param;
+	}
+
 }

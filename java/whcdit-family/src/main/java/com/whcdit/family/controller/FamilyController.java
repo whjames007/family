@@ -1,7 +1,5 @@
 package com.whcdit.family.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -9,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.github.pagehelper.PageInfo;
 import com.whcdit.family.model.FamilyInfo;
+import com.whcdit.family.model.FamilyMember;
 import com.whcdit.family.service.IFamilyService;
 import com.whcdit.family.utils.WuhanConstants;
 import com.whcdit.family.utils.WuhanResp;
@@ -83,8 +82,6 @@ public class FamilyController extends BaseController<FamilyInfo> {
 	public Object search(@RequestBody FamilyInfo param) {
 		WuhanResp<FamilyInfo> res = new WuhanResp<>();
 		try {
-//			List<FamilyInfo> list = familyService.search(param);
-//			res.buildResult(null,list, null);
 			PageInfo<FamilyInfo> page = familyService.search(param);
 			res.buildResult(null, null, page);
 		} catch (Exception e) {
@@ -93,7 +90,20 @@ public class FamilyController extends BaseController<FamilyInfo> {
 		}
 		return res;
 	}
-	
+
+	@PostMapping(path + "join")
+	public Object join(@RequestBody FamilyMember param) {
+		WuhanResp<FamilyMember> res = new WuhanResp<>();
+		try {
+			FamilyMember data  = familyService.join(param);
+			res.buildResult(data, null, null);
+		} catch (Exception e) {
+			e.printStackTrace();
+			res.buildError(WuhanConstants.WUHAN_RESPONSE_20001, e.getMessage());
+		}
+		return res;
+	}
+
 
 	
 

@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.github.pagehelper.PageInfo;
 import com.whcdit.family.model.FamilyInfo;
+import com.whcdit.family.model.FamilyMember;
 
 public interface IFamilyService {
 
@@ -21,5 +22,7 @@ public interface IFamilyService {
 	public boolean repeat(FamilyInfo param);
 
 	public PageInfo<FamilyInfo> search(FamilyInfo param);
+
+	public FamilyMember join(FamilyMember param);
 
 }

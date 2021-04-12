@@ -16,7 +16,7 @@ public class AbcdController {
 	@GetMapping("/abcd/a001")
 	public Object abcd001() {
 		SystemUserInfo user = new SystemUserInfo();
-		user.setDataDivideId(111);
+		user.setDataDivideId(1112);
 		return user;
 	}
 

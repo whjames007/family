@@ -29,7 +29,7 @@ public class FamilyService extends BaseService implements IFamilyService {
 	@Autowired
 	private FamilyInfoMapper familyInfoMapper;
 	@Autowired
-	private FamilyMemberMapper  familyMemberMapper;
+	private FamilyMemberMapper familyMemberMapper;
 	@Autowired
 	private FamilyAccountRecordMapper familyAccountRecordMapper;
 
@@ -38,12 +38,13 @@ public class FamilyService extends BaseService implements IFamilyService {
 	@Autowired
 	private IUserService userService;
 
-	@Override @Transactional
+	@Override
+	@Transactional
 	public int add(FamilyInfo param) {
 		// 先构造家族
 		Integer uid = param.getUid();
 		super.settingWithInsert(param, "创建一个家族");
-	    param.setLeaderUserId(uid);
+		param.setLeaderUserId(uid);
 		param.setLeaderOfficeTime(new Date());
 		param.setLastRecordId(0);
 		int row = familyInfoMapper.insertSelective(param);
@@ -58,7 +59,8 @@ public class FamilyService extends BaseService implements IFamilyService {
 		fm.setFamilyInfoId(fid);
 		familyMemberMapper.insertSelective(fm);
 		// 再构造一条账户记录
-		FamilyAccountRecord far = new FamilyAccountRecord();fm.setUid(uid);
+		FamilyAccountRecord far = new FamilyAccountRecord();
+		fm.setUid(uid);
 		far.setUid(uid);
 		super.settingWithInsert(far, "构造一条账户记录：家族创始资金");
 		far.setFamilyInfoId(fid);
@@ -84,7 +86,10 @@ public class FamilyService extends BaseService implements IFamilyService {
 		super.settingWithUpdate(user, "升级用户角色为族长");
 		user.setSystemUserId(uid);
 		user.setSystemRoleId(30);
+		user.setDataDivideId(fid);
 		userService.edit(user);
+		logger.info("成功创建新家族：" + param.getFamilyInfoName());
+
 		return row;
 	}
 
@@ -129,12 +134,36 @@ public class FamilyService extends BaseService implements IFamilyService {
 	}
 
 	@Override
+	@Transactional
 	public FamilyMember join(FamilyMember param) {
+		Integer uid = param.getUid();
 		super.settingWithInsert(param, "成功加入一个家族");
 		param.setFamilyMemberType(WuhanConstants.MEMBER);
-		param.setFirstCreateDate(new Date());
+		param.setMemberJoinTime(new Date());
 		familyMemberMapper.insertSelective(param);
+		// 最后升级用户角色为族长
+		SystemUserInfo user = new SystemUserInfo();
+		user.setUid(uid);
+		super.settingWithUpdate(user, "成功加入一个家族，升级用户角色为家族成员");
+		user.setSystemUserId(uid);
+		user.setSystemRoleId(40);
+		user.setDataDivideId(param.getFamilyInfoId());
+		userService.edit(user);
 		return param;
+	}
+
+	@Override
+	public PageInfo<FamilyAccountRecord> richesPage(FamilyAccountRecord param) {
+		super.pageInit(param);
+		List<FamilyAccountRecord> list = familyAccountRecordMapper.selectWithMorethan(param);
+		PageInfo<FamilyAccountRecord> pageInfo = new PageInfo<>(list);
+		return pageInfo;
+	}
+
+	@Override
+	public void richesAdd(FamilyAccountRecord param) {
+		super.settingWithInsert(param, "新增一条资产记录");
+		familyAccountRecordMapper.insertSelective(param);
 	}
 
 }

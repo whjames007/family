@@ -216,4 +216,42 @@
       last_update_date = #{lastUpdateDate,jdbcType=TIMESTAMP}
     where account_record_id = #{accountRecordId,jdbcType=INTEGER}
   </update>
+  
+  <select id="selectWithMorethan" parameterType="com.whcdit.family.model.FamilyAccountRecord" resultType="com.whcdit.family.model.FamilyAccountRecord">
+SELECT
+	d.family_member_type AS familyMemberType,
+	c.system_user_nickname AS systemUserNickname,
+	b.family_info_name AS familyInfoName,
+	a.account_record_id AS accountRecordId,
+	a.family_info_id AS familyInfoId,
+	a.account_record_type AS accountRecordType,
+	a.member_user_id AS memberUserId,
+	a.account_record_amount AS accountRecordAmount,
+	a.account_record_year AS accountRecordYear,
+	a.account_record_month AS accountRecordMonth,
+	a.account_record_day AS accountRecordDay,
+	a.account_record_desc AS accountRecordDesc,
+	a.first_create_by AS firstCreateBy,
+	a.first_create_date AS firstCreateDate,
+	a.data_status AS dataStatus,
+	a.data_divide_id AS dataDivideId,
+	a.description AS description,
+	a.last_update_by AS lastUpdateBy,
+	a.last_update_date AS lastUpdateDate 
+FROM
+	family_account_record a
+	JOIN family_info b ON a.family_info_id = b.family_info_id
+	JOIN system_user_info c ON a.member_user_id = c.system_user_id
+	JOIN family_member d ON a.member_user_id = d.member_user_id
+<where>
+  <if test="dataStatus != null">a.data_status = #{dataStatus,jdbcType=VARCHAR}</if>
+  <if test="accountRecordYear != null">AND a.account_record_year = #{accountRecordYear,jdbcType=INTEGER}</if>
+  <if test="accountRecordMonth != null">AND a.account_record_month = #{accountRecordMonth,jdbcType=INTEGER}</if>
+  <if test="accountRecordDay != null">AND a.account_record_day = #{accountRecordDay,jdbcType=INTEGER}</if>
+  <if test="familyInfoName != null">AND b.family_info_name like CONCAT('%', #{familyInfoName,jdbcType=VARCHAR}, '%')</if>
+</where>
+ORDER BY a.first_create_date DESC
+  </select>
+  
+  
 </mapper>

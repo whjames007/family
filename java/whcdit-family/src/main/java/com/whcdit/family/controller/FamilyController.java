@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.github.pagehelper.PageInfo;
+import com.whcdit.family.model.FamilyAccountRecord;
 import com.whcdit.family.model.FamilyInfo;
 import com.whcdit.family.model.FamilyMember;
 import com.whcdit.family.service.IFamilyService;
@@ -104,7 +105,33 @@ public class FamilyController extends BaseController<FamilyInfo> {
 		return res;
 	}
 
+	@ApiOperation("家族资产分页接口")
+	@PostMapping(path + "riches/page")
+	public Object richesPage(@RequestBody FamilyAccountRecord param) {
+		WuhanResp<FamilyAccountRecord> res = new WuhanResp<>();
+		try {
+			PageInfo<FamilyAccountRecord> page = familyService.richesPage(param);
+			res.buildResult(null, null, page);
+		} catch (Exception e) {
+			e.printStackTrace();
+			res.buildError(WuhanConstants.WUHAN_RESPONSE_20001, e.getMessage());
+		}
+		return res;
+	}
 
+	@ApiOperation("家族资产新增接口")
+	@PostMapping(path + "riches/add")
+	public Object richesAdd(@RequestBody FamilyAccountRecord param) {
+		WuhanResp<FamilyAccountRecord> res = new WuhanResp<>();
+		try {
+			familyService.richesAdd(param);
+			res.buildResult(param, null, null);
+		} catch (Exception e) {
+			e.printStackTrace();
+			res.buildError(WuhanConstants.WUHAN_RESPONSE_20001, e.getMessage());
+		}
+		return res;
+	}
 	
 
 }

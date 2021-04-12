@@ -18,6 +18,12 @@ public class FamilyAccountRecord extends BaseModel {
     private Integer accountRecordDay;
 
     private String accountRecordDesc;
+    
+    private String familyInfoName;
+    
+    private String systemUserNickname;
+    
+    private String familyMemberType;
 
     public Integer getAccountRecordId() {
         return accountRecordId;
@@ -90,4 +96,28 @@ public class FamilyAccountRecord extends BaseModel {
     public void setAccountRecordDesc(String accountRecordDesc) {
         this.accountRecordDesc = accountRecordDesc;
     }
+
+	public String getFamilyInfoName() {
+		return familyInfoName;
+	}
+
+	public void setFamilyInfoName(String familyInfoName) {
+		this.familyInfoName = familyInfoName;
+	}
+
+	public String getSystemUserNickname() {
+		return systemUserNickname;
+	}
+
+	public void setSystemUserNickname(String systemUserNickname) {
+		this.systemUserNickname = systemUserNickname;
+	}
+
+	public String getFamilyMemberType() {
+		return familyMemberType;
+	}
+
+	public void setFamilyMemberType(String familyMemberType) {
+		this.familyMemberType = familyMemberType;
+	}
 }

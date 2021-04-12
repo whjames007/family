@@ -1,5 +1,6 @@
 package com.whcdit.family.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -30,39 +31,48 @@ public class UserService extends BaseService implements IUserService {
 	private static Logger logger = LoggerFactory.getLogger(UserService.class);
 
 	@Override
-	public void login(SystemUserInfo param) {
-		// 获取登录者的角色信息
-		SystemRoleInfo role = systemRoleInfoMapper.selectByPrimaryKey(param.getSystemRoleId());
-		param.setSystemRoleName(role.getSystemRoleName());
+	public SystemUserInfo login(Integer uid) {
+		SystemUserInfo param = new SystemUserInfo();
+		param.setUid(uid);
+		param.setSystemUserId(uid);
+		super.settingValid(param);
+		// 获取登录者的角色信息和家族信息
+		SystemUserInfo user = systemUserInfoMapper.selectWithMorethan(param).get(0);
 		// 获取登录者的菜单信息
-		SystemMenuInfo root = systemMenuInfoMapper.selectByPrimaryKey(1);
-		SystemMenuInfo pbranch = new SystemMenuInfo();
-		pbranch.setSystemParentId(root.getSystemMenuId());
-		List<SystemMenuInfo> branchs = systemMenuInfoMapper.selectWithCondition(pbranch);
-		for (SystemMenuInfo bra : branchs) {
-			SystemMenuInfo pleaf = new SystemMenuInfo();
-			pleaf.setSystemParentId(bra.getSystemMenuId());
-			List<SystemMenuInfo> leafs = systemMenuInfoMapper.selectWithCondition(pleaf);
-			// 存储三级导航URL和判断可关闭布尔标识
-			leafs.forEach(e-> {
-				e.setSystemUrlFirst(root.getSystemMenuUrl());
-				e.setSystemUrlSecond(bra.getSystemMenuUrl());
-				e.setSystemUrlThird(e.getSystemMenuUrl());
-				if (WuhanConstants.YES.equals(e.getSystemMenuClose())) {
-					e.setSystemBoolClose(true);
-				} else {
-					e.setSystemBoolClose(false);
+				SystemMenuInfo root = systemMenuInfoMapper.selectByPrimaryKey(1);
+				SystemMenuInfo pbranch = new SystemMenuInfo();
+				pbranch.setSystemParentId(root.getSystemMenuId());
+				List<SystemMenuInfo> branchs = systemMenuInfoMapper.selectWithCondition(pbranch);
+				for (SystemMenuInfo bra : branchs) {
+					SystemMenuInfo pleaf = new SystemMenuInfo();
+					pleaf.setSystemParentId(bra.getSystemMenuId());
+					List<SystemMenuInfo> leafs = systemMenuInfoMapper.selectWithCondition(pleaf);
+					// 存储三级导航URL和判断可关闭布尔标识
+					leafs.forEach(e-> {
+						e.setSystemUrlFirst(root.getSystemMenuUrl());
+						e.setSystemUrlSecond(bra.getSystemMenuUrl());
+						e.setSystemUrlThird(e.getSystemMenuUrl());
+						if (WuhanConstants.YES.equals(e.getSystemMenuClose())) {
+							e.setSystemBoolClose(true);
+						} else {
+							e.setSystemBoolClose(false);
+						}
+					});
+					bra.setChilds(leafs);
 				}
-			});
-			bra.setChilds(leafs);
-		}
-		root.setChilds(branchs);
-		param.setMenu(root);
-		// 为前端初始化基础属性
-		param.setUid(param.getSystemUserId());
-		param.setPageNum(1);
-		param.setPageSize(10);
+				root.setChilds(branchs);
+				user.setMenu(root);
+				// 为前端初始化基础属性
+				user.setUid(param.getSystemUserId());
+				user.setPageNum(1);
+				user.setPageSize(10);
+				// 更新登录时间
+				super.settingWithUpdate(param, "登录成功，更新登录时间");
+				param.setLastLoginTime(new Date());
+				this.edit(param);
+		return user;
 	}
+	
 
 	@Override
 	public int add(SystemUserInfo param) {
@@ -103,6 +113,7 @@ public class UserService extends BaseService implements IUserService {
 	@Override
 	public boolean repeat(SystemUserInfo param) {
 		// TODO Auto-generated method stub
+		logger.info("用户账号重复");
 		return false;
 	}
 
@@ -125,6 +136,7 @@ public class UserService extends BaseService implements IUserService {
 	public List<SystemMenuInfo> menuList(SystemMenuInfo param) {
 		return systemMenuInfoMapper.selectWithCondition(param);
 	}
+
 
 //	@Override
 //	public boolean repeat(UserInfo param) {

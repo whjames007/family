@@ -4,6 +4,7 @@ package com.whcdit.family.service;
 import java.util.List;
 
 import com.github.pagehelper.PageInfo;
+import com.whcdit.family.model.FamilyAccountRecord;
 import com.whcdit.family.model.FamilyInfo;
 import com.whcdit.family.model.FamilyMember;
 
@@ -24,5 +25,9 @@ public interface IFamilyService {
 	public PageInfo<FamilyInfo> search(FamilyInfo param);
 
 	public FamilyMember join(FamilyMember param);
+
+	public PageInfo<FamilyAccountRecord> richesPage(FamilyAccountRecord param);
+
+	public void richesAdd(FamilyAccountRecord param);
 
 }

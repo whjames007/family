@@ -229,6 +229,7 @@
   
   <select id="selectWithMorethan" parameterType="com.whcdit.family.model.SystemUserInfo" resultType="com.whcdit.family.model.SystemUserInfo">
 SELECT
+	c.family_info_name AS familyInfoName,
 	b.system_role_name AS systemRoleName,
 	a.system_user_id AS systemUserId,
 	a.system_user_account AS systemUserAccount,
@@ -249,12 +250,15 @@ SELECT
 FROM
 	system_user_info a
 	JOIN system_role_info b ON a.system_role_id = b.system_role_id
+	JOIN family_info c ON a.data_divide_id = c.family_info_id
     <where>
       a.system_user_id <![CDATA[ > ]]> 100
       <if test="dataStatus != null">AND a.data_status = #{dataStatus,jdbcType=VARCHAR}</if>
+      <if test="systemUserId != null">AND a.system_user_id = #{systemUserId,jdbcType=INTEGER}</if>
       <if test="systemUserAccount != null">AND a.system_user_account like CONCAT('%', #{systemUserAccount,jdbcType=VARCHAR}, '%')</if>
       <if test="systemUserNickname != null">AND a.system_user_nickname like CONCAT('%', #{systemUserNickname,jdbcType=VARCHAR}, '%')</if>
     </where>
+ORDER BY a.first_create_date DESC
   </select>
   
 </mapper>

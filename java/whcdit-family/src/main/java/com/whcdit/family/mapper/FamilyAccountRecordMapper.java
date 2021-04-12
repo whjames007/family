@@ -1,5 +1,7 @@
 package com.whcdit.family.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import com.whcdit.family.model.FamilyAccountRecord;
@@ -16,4 +18,6 @@ public interface FamilyAccountRecordMapper {
     int updateByPrimaryKeySelective(FamilyAccountRecord record);
 
     int updateByPrimaryKey(FamilyAccountRecord record);
+
+	List<FamilyAccountRecord> selectWithMorethan(FamilyAccountRecord param);
 }

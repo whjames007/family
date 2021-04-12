@@ -45,8 +45,8 @@ public class UserController {
 			String tacco = target.getSystemUserAccount();
 			String tpass = target.getSystemUserPassword();
 			if (tacco.equals(account) && tpass.equals(pass)) {
-				userService.login(target);
-				res.buildResult(target, null, null);
+				SystemUserInfo data = userService.login(target.getSystemUserId());
+				res.buildResult(data, null, null);
 			} else {
 				res.buildError(WuhanConstants.WUHAN_RESPONSE_30001, "账号或密码错误");
 			}

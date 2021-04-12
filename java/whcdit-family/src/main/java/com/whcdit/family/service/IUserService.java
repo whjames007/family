@@ -10,7 +10,7 @@ import com.whcdit.family.model.SystemUserInfo;
 
 public interface IUserService {
 
-	public void login(SystemUserInfo param); 
+	public SystemUserInfo login(Integer uid);
 	
 	public int add(SystemUserInfo param);
 	
@@ -29,5 +29,6 @@ public interface IUserService {
 	public PageInfo<SystemRoleInfo> rolePage(SystemRoleInfo param);
 
 	public List<SystemMenuInfo> menuList(SystemMenuInfo param);
+
 
 }

@@ -28,7 +28,11 @@ public interface IUserService {
 
 	public PageInfo<SystemRoleInfo> rolePage(SystemRoleInfo param);
 
+	public int roleEdit(SystemRoleInfo param);
+
 	public List<SystemMenuInfo> menuList(SystemMenuInfo param);
+
+	public SystemMenuInfo menuTree(SystemMenuInfo param);
 
 
 }

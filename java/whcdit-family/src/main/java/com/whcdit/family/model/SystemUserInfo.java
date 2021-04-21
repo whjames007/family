@@ -25,7 +25,7 @@ public class SystemUserInfo extends BaseModel {
     
     private String familyInfoName;
     
-    private SystemMenuInfo menu;
+    private SystemRoleRelation menu;
 
     public Integer getSystemUserId() {
         return systemUserId;
@@ -107,11 +107,11 @@ public class SystemUserInfo extends BaseModel {
 		this.systemRoleName = systemRoleName;
 	}
 
-	public SystemMenuInfo getMenu() {
+	public SystemRoleRelation getMenu() {
 		return menu;
 	}
 
-	public void setMenu(SystemMenuInfo menu) {
+	public void setMenu(SystemRoleRelation menu) {
 		this.menu = menu;
 	}
 

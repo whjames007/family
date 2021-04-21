@@ -11,12 +11,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.github.pagehelper.PageInfo;
-import com.whcdit.family.mapper.FamilyAccountRecordMapper;
 import com.whcdit.family.mapper.FamilyInfoMapper;
 import com.whcdit.family.mapper.FamilyMemberMapper;
-import com.whcdit.family.model.FamilyAccountRecord;
+import com.whcdit.family.mapper.FamilyRichesRecordMapper;
 import com.whcdit.family.model.FamilyInfo;
 import com.whcdit.family.model.FamilyMember;
+import com.whcdit.family.model.FamilyRichesRecord;
 import com.whcdit.family.model.SystemUserInfo;
 import com.whcdit.family.service.IFamilyService;
 import com.whcdit.family.service.IUserService;
@@ -31,7 +31,7 @@ public class FamilyService extends BaseService implements IFamilyService {
 	@Autowired
 	private FamilyMemberMapper familyMemberMapper;
 	@Autowired
-	private FamilyAccountRecordMapper familyAccountRecordMapper;
+	private FamilyRichesRecordMapper familyRichesRecordMapper;
 
 	private static Logger logger = LoggerFactory.getLogger(FamilyService.class);
 
@@ -59,26 +59,26 @@ public class FamilyService extends BaseService implements IFamilyService {
 		fm.setFamilyInfoId(fid);
 		familyMemberMapper.insertSelective(fm);
 		// 再构造一条账户记录
-		FamilyAccountRecord far = new FamilyAccountRecord();
+		FamilyRichesRecord far = new FamilyRichesRecord();
 		fm.setUid(uid);
 		far.setUid(uid);
 		super.settingWithInsert(far, "构造一条账户记录：家族创始资金");
-		far.setFamilyInfoId(fid);
-		far.setAccountRecordType(WuhanConstants.INIT);
-		far.setMemberUserId(uid);
-		far.setAccountRecordAmount(param.getFamilyAccountAmount());
+		far.setRichesRecordFamily(fid);
+		far.setRichesRecordType(WuhanConstants.INIT);
+		far.setRichesRecordUser(uid);
+		far.setRichesRecordAmount(param.getFamilyAccountAmount());
 		Map<Integer, Integer> dmap = WuhanMethods.getYMD(null);
-		far.setAccountRecordYear(dmap.get(1));
-		far.setAccountRecordMonth(dmap.get(2));
-		far.setAccountRecordDay(dmap.get(3));
-		far.setAccountRecordDesc("家族创始资金");
-		familyAccountRecordMapper.insertSelective(far);
+		far.setRichesRecordYear(dmap.get(1));
+		far.setRichesRecordMonth(dmap.get(2));
+		far.setRichesRecordDay(dmap.get(3));
+		far.setRichesRecordDesc("家族创始资金");
+		familyRichesRecordMapper.insertSelective(far);
 		// 再回刷家族lastRecordId
 		FamilyInfo callback = new FamilyInfo();
 		callback.setUid(uid);
 		super.settingWithUpdate(callback, "族长回刷家族创始资金");
 		callback.setFamilyInfoId(fid);
-		callback.setLastRecordId(far.getAccountRecordId());
+		callback.setLastRecordId(far.getRichesRecordId());
 		familyInfoMapper.updateByPrimaryKeySelective(callback);
 		// 最后升级用户角色为族长
 		SystemUserInfo user = new SystemUserInfo();
@@ -153,17 +153,23 @@ public class FamilyService extends BaseService implements IFamilyService {
 	}
 
 	@Override
-	public PageInfo<FamilyAccountRecord> richesPage(FamilyAccountRecord param) {
+	public PageInfo<FamilyRichesRecord> richesPage(FamilyRichesRecord param) {
 		super.pageInit(param);
-		List<FamilyAccountRecord> list = familyAccountRecordMapper.selectWithMorethan(param);
-		PageInfo<FamilyAccountRecord> pageInfo = new PageInfo<>(list);
+		List<FamilyRichesRecord> list = familyRichesRecordMapper.selectWithMorethan(param);
+		PageInfo<FamilyRichesRecord> pageInfo = new PageInfo<>(list);
 		return pageInfo;
 	}
 
 	@Override
-	public void richesAdd(FamilyAccountRecord param) {
+	public void richesAdd(FamilyRichesRecord param) {
 		super.settingWithInsert(param, "新增一条资产记录");
-		familyAccountRecordMapper.insertSelective(param);
+		familyRichesRecordMapper.insertSelective(param);
+	}
+
+	@Override
+	public void richesEdit(FamilyRichesRecord param) {
+		super.settingWithUpdate(param, "修改了一条资产记录");
+		familyRichesRecordMapper.updateByPrimaryKeySelective(param);
 	}
 
 }

@@ -1,6 +1,5 @@
 package com.whcdit.family.service;
 
-import com.github.pagehelper.PageInfo;
 import com.whcdit.family.model.BaseModel;
 
 public interface IBaseService {

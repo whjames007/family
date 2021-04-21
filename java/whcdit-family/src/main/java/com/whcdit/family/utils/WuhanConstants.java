@@ -80,6 +80,12 @@ public class WuhanConstants {
 	public static final String NORMAL = "NORMAL";
 	public static final String LEADER = "LEADER";
 	public static final String MEMBER = "MEMBER";
+
+	public static final String INCOME = "INCOME";
+	public static final String EXPENSES = "EXPENSES";
+	
+	public static final String BRANCH = "BRANCH";
+	public static final String LEAF = "LEAF";
 	
 	public class OrderTypeCode {
 		/**
@@ -121,7 +127,7 @@ public class WuhanConstants {
 	 */
 	public static final String WUHAN_RESPONSE_30002 = "WUHAN_RESPONSE_30002";
 	/**
-	 * WUHAN_RESPONSE_30003=网关序列号重复
+	 * WUHAN_RESPONSE_30003=用户昵称重复
 	 */
 	public static final String WUHAN_RESPONSE_30003 = "WUHAN_RESPONSE_30003";
 

@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.whcdit.family.mapper.FamilyRichesRecordMapper">
+  <resultMap id="BaseResultMap" type="com.whcdit.family.model.FamilyRichesRecord">
+    <id column="riches_record_id" jdbcType="INTEGER" property="richesRecordId" />
+    <result column="riches_record_family" jdbcType="INTEGER" property="richesRecordFamily" />
+    <result column="riches_record_type" jdbcType="VARCHAR" property="richesRecordType" />
+    <result column="riches_record_user" jdbcType="INTEGER" property="richesRecordUser" />
+    <result column="riches_record_amount" jdbcType="DOUBLE" property="richesRecordAmount" />
+    <result column="riches_record_time" jdbcType="TIMESTAMP" property="richesRecordTime" />
+    <result column="riches_record_year" jdbcType="INTEGER" property="richesRecordYear" />
+    <result column="riches_record_month" jdbcType="INTEGER" property="richesRecordMonth" />
+    <result column="riches_record_day" jdbcType="INTEGER" property="richesRecordDay" />
+    <result column="riches_record_desc" jdbcType="VARCHAR" property="richesRecordDesc" />
+    <result column="first_create_by" jdbcType="INTEGER" property="firstCreateBy" />
+    <result column="first_create_date" jdbcType="TIMESTAMP" property="firstCreateDate" />
+    <result column="data_status" jdbcType="VARCHAR" property="dataStatus" />
+    <result column="data_divide_id" jdbcType="INTEGER" property="dataDivideId" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="last_update_by" jdbcType="INTEGER" property="lastUpdateBy" />
+    <result column="last_update_date" jdbcType="TIMESTAMP" property="lastUpdateDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    riches_record_id, riches_record_family, riches_record_type, riches_record_user, riches_record_amount, 
+    riches_record_time, riches_record_year, riches_record_month, riches_record_day, riches_record_desc, 
+    first_create_by, first_create_date, data_status, data_divide_id, description, last_update_by, 
+    last_update_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from family_riches_record
+    where riches_record_id = #{richesRecordId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from family_riches_record
+    where riches_record_id = #{richesRecordId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="riches_record_id" keyProperty="richesRecordId" parameterType="com.whcdit.family.model.FamilyRichesRecord" useGeneratedKeys="true">
+    insert into family_riches_record (riches_record_family, riches_record_type, 
+      riches_record_user, riches_record_amount, riches_record_time, 
+      riches_record_year, riches_record_month, riches_record_day, 
+      riches_record_desc, first_create_by, first_create_date, 
+      data_status, data_divide_id, description, 
+      last_update_by, last_update_date)
+    values (#{richesRecordFamily,jdbcType=INTEGER}, #{richesRecordType,jdbcType=VARCHAR}, 
+      #{richesRecordUser,jdbcType=INTEGER}, #{richesRecordAmount,jdbcType=DOUBLE}, #{richesRecordTime,jdbcType=TIMESTAMP}, 
+      #{richesRecordYear,jdbcType=INTEGER}, #{richesRecordMonth,jdbcType=INTEGER}, #{richesRecordDay,jdbcType=INTEGER}, 
+      #{richesRecordDesc,jdbcType=VARCHAR}, #{firstCreateBy,jdbcType=INTEGER}, #{firstCreateDate,jdbcType=TIMESTAMP}, 
+      #{dataStatus,jdbcType=VARCHAR}, #{dataDivideId,jdbcType=INTEGER}, #{description,jdbcType=VARCHAR}, 
+      #{lastUpdateBy,jdbcType=INTEGER}, #{lastUpdateDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="riches_record_id" keyProperty="richesRecordId" parameterType="com.whcdit.family.model.FamilyRichesRecord" useGeneratedKeys="true">
+    insert into family_riches_record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="richesRecordFamily != null">
+        riches_record_family,
+      </if>
+      <if test="richesRecordType != null">
+        riches_record_type,
+      </if>
+      <if test="richesRecordUser != null">
+        riches_record_user,
+      </if>
+      <if test="richesRecordAmount != null">
+        riches_record_amount,
+      </if>
+      <if test="richesRecordTime != null">
+        riches_record_time,
+      </if>
+      <if test="richesRecordYear != null">
+        riches_record_year,
+      </if>
+      <if test="richesRecordMonth != null">
+        riches_record_month,
+      </if>
+      <if test="richesRecordDay != null">
+        riches_record_day,
+      </if>
+      <if test="richesRecordDesc != null">
+        riches_record_desc,
+      </if>
+      <if test="firstCreateBy != null">
+        first_create_by,
+      </if>
+      <if test="firstCreateDate != null">
+        first_create_date,
+      </if>
+      <if test="dataStatus != null">
+        data_status,
+      </if>
+      <if test="dataDivideId != null">
+        data_divide_id,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="lastUpdateBy != null">
+        last_update_by,
+      </if>
+      <if test="lastUpdateDate != null">
+        last_update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="richesRecordFamily != null">
+        #{richesRecordFamily,jdbcType=INTEGER},
+      </if>
+      <if test="richesRecordType != null">
+        #{richesRecordType,jdbcType=VARCHAR},
+      </if>
+      <if test="richesRecordUser != null">
+        #{richesRecordUser,jdbcType=INTEGER},
+      </if>
+      <if test="richesRecordAmount != null">
+        #{richesRecordAmount,jdbcType=DOUBLE},
+      </if>
+      <if test="richesRecordTime != null">
+        #{richesRecordTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="richesRecordYear != null">
+        #{richesRecordYear,jdbcType=INTEGER},
+      </if>
+      <if test="richesRecordMonth != null">
+        #{richesRecordMonth,jdbcType=INTEGER},
+      </if>
+      <if test="richesRecordDay != null">
+        #{richesRecordDay,jdbcType=INTEGER},
+      </if>
+      <if test="richesRecordDesc != null">
+        #{richesRecordDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="firstCreateBy != null">
+        #{firstCreateBy,jdbcType=INTEGER},
+      </if>
+      <if test="firstCreateDate != null">
+        #{firstCreateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dataStatus != null">
+        #{dataStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDivideId != null">
+        #{dataDivideId,jdbcType=INTEGER},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateBy != null">
+        #{lastUpdateBy,jdbcType=INTEGER},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.whcdit.family.model.FamilyRichesRecord">
+    update family_riches_record
+    <set>
+      <if test="richesRecordFamily != null">
+        riches_record_family = #{richesRecordFamily,jdbcType=INTEGER},
+      </if>
+      <if test="richesRecordType != null">
+        riches_record_type = #{richesRecordType,jdbcType=VARCHAR},
+      </if>
+      <if test="richesRecordUser != null">
+        riches_record_user = #{richesRecordUser,jdbcType=INTEGER},
+      </if>
+      <if test="richesRecordAmount != null">
+        riches_record_amount = #{richesRecordAmount,jdbcType=DOUBLE},
+      </if>
+      <if test="richesRecordTime != null">
+        riches_record_time = #{richesRecordTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="richesRecordYear != null">
+        riches_record_year = #{richesRecordYear,jdbcType=INTEGER},
+      </if>
+      <if test="richesRecordMonth != null">
+        riches_record_month = #{richesRecordMonth,jdbcType=INTEGER},
+      </if>
+      <if test="richesRecordDay != null">
+        riches_record_day = #{richesRecordDay,jdbcType=INTEGER},
+      </if>
+      <if test="richesRecordDesc != null">
+        riches_record_desc = #{richesRecordDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="firstCreateBy != null">
+        first_create_by = #{firstCreateBy,jdbcType=INTEGER},
+      </if>
+      <if test="firstCreateDate != null">
+        first_create_date = #{firstCreateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dataStatus != null">
+        data_status = #{dataStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDivideId != null">
+        data_divide_id = #{dataDivideId,jdbcType=INTEGER},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateBy != null">
+        last_update_by = #{lastUpdateBy,jdbcType=INTEGER},
+      </if>
+      <if test="lastUpdateDate != null">
+        last_update_date = #{lastUpdateDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where riches_record_id = #{richesRecordId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.whcdit.family.model.FamilyRichesRecord">
+    update family_riches_record
+    set riches_record_family = #{richesRecordFamily,jdbcType=INTEGER},
+      riches_record_type = #{richesRecordType,jdbcType=VARCHAR},
+      riches_record_user = #{richesRecordUser,jdbcType=INTEGER},
+      riches_record_amount = #{richesRecordAmount,jdbcType=DOUBLE},
+      riches_record_time = #{richesRecordTime,jdbcType=TIMESTAMP},
+      riches_record_year = #{richesRecordYear,jdbcType=INTEGER},
+      riches_record_month = #{richesRecordMonth,jdbcType=INTEGER},
+      riches_record_day = #{richesRecordDay,jdbcType=INTEGER},
+      riches_record_desc = #{richesRecordDesc,jdbcType=VARCHAR},
+      first_create_by = #{firstCreateBy,jdbcType=INTEGER},
+      first_create_date = #{firstCreateDate,jdbcType=TIMESTAMP},
+      data_status = #{dataStatus,jdbcType=VARCHAR},
+      data_divide_id = #{dataDivideId,jdbcType=INTEGER},
+      description = #{description,jdbcType=VARCHAR},
+      last_update_by = #{lastUpdateBy,jdbcType=INTEGER},
+      last_update_date = #{lastUpdateDate,jdbcType=TIMESTAMP}
+    where riches_record_id = #{richesRecordId,jdbcType=INTEGER}
+  </update>
+  
+  <select id="selectWithMorethan" parameterType="com.whcdit.family.model.FamilyRichesRecord" resultType="com.whcdit.family.model.FamilyRichesRecord">
+SELECT
+	d.family_member_type AS familyMemberType,
+	c.system_user_nickname AS systemUserNickname,
+	b.family_info_name AS familyInfoName,
+	a.riches_record_id AS richesRecordId,
+	a.riches_record_family AS richesRecordFamily,
+	a.riches_record_type AS richesRecordType,
+	a.riches_record_user AS richesRecordUser,
+	a.riches_record_amount AS richesRecordAmount,
+	a.riches_record_time AS richesRecordTime,
+	a.riches_record_year AS richesRecordYear,
+	a.riches_record_month AS richesRecordMonth,
+	a.riches_record_day AS richesRecordDay,
+	a.riches_record_desc AS richesRecordDesc,
+	a.first_create_by AS firstCreateBy,
+	a.first_create_date AS firstCreateDate,
+	a.data_status AS dataStatus,
+	a.data_divide_id AS dataDivideId,
+	a.description AS description,
+	a.last_update_by AS lastUpdateBy,
+	a.last_update_date AS lastUpdateDate 
+FROM
+	family_riches_record a
+	JOIN family_info b ON a.riches_record_family = b.family_info_id
+	JOIN system_user_info c ON a.riches_record_user = c.system_user_id
+	JOIN family_member d ON a.riches_record_user = d.member_user_id
+<where>
+  <if test="dataStatus != null">a.data_status = #{dataStatus,jdbcType=VARCHAR}</if>
+  <if test="richesRecordYear != null">AND a.riches_record_year = #{richesRecordYear,jdbcType=INTEGER}</if>
+  <if test="richesRecordMonth != null">AND a.riches_record_month = #{richesRecordMonth,jdbcType=INTEGER}</if>
+  <if test="richesRecordDay != null">AND a.riches_record_day = #{richesRecordDay,jdbcType=INTEGER}</if>
+  <if test="familyInfoName != null">AND b.family_info_name like CONCAT('%', #{familyInfoName,jdbcType=VARCHAR}, '%')</if>
+</where>
+ORDER BY a.first_create_date DESC
+  </select>
+  
+</mapper>

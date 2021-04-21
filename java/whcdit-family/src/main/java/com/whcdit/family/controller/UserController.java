@@ -59,12 +59,56 @@ public class UserController {
 	public Object userRegister  (@RequestBody SystemUserInfo param) {
 		WuhanResp<SystemUserInfo> res = new WuhanResp<>();
 		param.setSystemUserType(WuhanConstants.NORMAL);
-		param.setSystemUserTelephone("13900000009");
-		param.setSystemUserEmail("register@wuhan.com");
+		if (WuhanMethods.strNullEmpty(param.getSystemUserTelephone())) {
+			param.setSystemUserTelephone("13900000009");
+		}
+		if (WuhanMethods.strNullEmpty(param.getSystemUserEmail())) {
+			param.setSystemUserEmail("register@wuhan.com");
+		}
 		param.setSystemRoleId(50);
 		param.setLastLoginTime(new Date());
 		try {
-			userService.add(param);
+			SystemUserInfo pacc = new SystemUserInfo();
+			pacc.setSystemUserAccount(param.getSystemUserAccount());
+			SystemUserInfo pnic = new SystemUserInfo();
+			pnic.setSystemUserNickname(param.getSystemUserNickname());
+			if (userService.repeat(pacc)) {
+				res.buildError(WuhanConstants.WUHAN_RESPONSE_30002, "检查用户账号是否重复");
+			} else if (userService.repeat(pnic)) {
+				res.buildError(WuhanConstants.WUHAN_RESPONSE_30003, "检查用户昵称是否重复");
+			} 
+			else {
+				userService.add(param);
+				res.buildResult(param ,null, null);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			res.buildError(WuhanConstants.WUHAN_RESPONSE_20001, e.getMessage());
+		}
+		return res;
+	}
+	
+	@ApiOperation("用户删除接口")
+	@PostMapping(path + "del")
+	public Object userDel  (@RequestBody SystemUserInfo param) {
+		WuhanResp<SystemUserInfo> res = new WuhanResp<>();
+		try {
+			userService.del(param);
+			res.buildResult(param ,null, null);
+		} catch (Exception e) {
+			e.printStackTrace();
+			res.buildError(WuhanConstants.WUHAN_RESPONSE_20001, e.getMessage());
+		}
+		return res;
+	}
+	
+	@ApiOperation("用户修改接口")
+	@PostMapping(path + "edit")
+	public Object userEdit (@RequestBody SystemUserInfo param) {
+		WuhanResp<SystemUserInfo> res = new WuhanResp<>();
+		try {
+			userService.edit(param);
 			res.buildResult(param ,null, null);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -115,6 +159,20 @@ public class UserController {
 		return res;
 	}
 
+	@ApiOperation("角色edit接口")
+	@PostMapping("/role/edit")
+	public Object roleEdit(@RequestBody SystemRoleInfo param) {
+		WuhanResp<SystemRoleInfo> res = new WuhanResp<>();
+		try {
+			userService.roleEdit(param);
+			res.buildResult(param, null, null);
+		} catch (Exception e) {
+			e.printStackTrace();
+			res.buildError(WuhanConstants.WUHAN_RESPONSE_20001, e.getMessage());
+		}
+		return res;
+	}
+
 	@ApiOperation("菜单列表接口")
 	@PostMapping("/menu/list")
 	public Object menuList(@RequestBody SystemMenuInfo param) {
@@ -128,5 +186,20 @@ public class UserController {
 		}
 		return res;
 	}
+
+	@ApiOperation("菜单树状接口")
+	@PostMapping("/menu/tree")
+	public Object menuTree(@RequestBody SystemMenuInfo param) {
+		WuhanResp<SystemMenuInfo> res = new WuhanResp<>();
+		try {
+			SystemMenuInfo tree = userService.menuTree(param);
+			res.buildResult(tree, null, null);
+		} catch (Exception e) {
+			e.printStackTrace();
+			res.buildError(WuhanConstants.WUHAN_RESPONSE_20001, e.getMessage());
+		}
+		return res;
+	}
+	
 
 }

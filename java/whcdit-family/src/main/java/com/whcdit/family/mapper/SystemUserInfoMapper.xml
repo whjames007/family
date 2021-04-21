@@ -224,6 +224,7 @@
 	    <if test="dataStatus != null">data_status = #{dataStatus,jdbcType=VARCHAR}</if>
 	    <if test="noid != null">AND system_user_id != #{systemUserId,jdbcType=INTEGER}</if>
 	    <if test="systemUserAccount != null">AND system_user_account = #{systemUserAccount,jdbcType=VARCHAR}</if>
+	    <if test="systemUserNickname != null">AND system_user_nickname = #{systemUserNickname,jdbcType=VARCHAR}</if>
     </where>
   </select>
   

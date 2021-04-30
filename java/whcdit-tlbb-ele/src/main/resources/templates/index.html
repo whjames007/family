@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>武汉加油</title>
+		<link rel="shortcut icon" href="image/logo-bmw.svg" type="images/x-icon">
+		<link rel="stylesheet" href="style/element.css">
+		<link rel="stylesheet" href="style/whc-common.css">
+		<script type="text/javascript" src="script/vue.js"></script>
+	    <script type="text/javascript" src="script/vue-router.js"></script>
+	    <script type="text/javascript" src="script/jquery.min.js"></script>
+		<script type="text/javascript" src="script/element.js"></script>
+		<script type="text/javascript" src="script/utils-date-format.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<el-row>
+				<el-col :span="8" class="whc-col-logo"><img class="local-login-img" src="image/logo-bmw.svg"/></el-col>
+				<el-col :span="8" class="whc-col-title">管理系统</el-col>
+				<el-col :span="8" class="whc-col-version">v1.0.1</el-col>
+			</el-row>
+			<el-tabs type="card" v-model="activeName" @tab-click="tabMethodClick">
+				<el-tab-pane name="show"><span slot="label"><i class="el-icon-magic-stick"></i>系统展示</span></el-tab-pane>
+				<el-tab-pane name="game"><span slot="label"><i class="el-icon-present"></i>项目管理</span></el-tab-pane>
+				<el-tab-pane name="global"><span slot="label"><i class="el-icon-setting"></i>全局设置</span></el-tab-pane>
+				<el-tab-pane name="help"><span slot="label"><i class="el-icon-help"></i>使用帮助</span></el-tab-pane>
+			</el-tabs>
+			<router-view></router-view>
+		</div>
+		
+		<template id="templateShow">
+			<div id="divShow">
+			111
+			</div>		
+		</template>
+		
+		<template id="templateGame">
+			<div id="divGame">
+		      <el-form :model="mouse" label-width="100px" size="mini">
+		        <el-row>
+		          <el-col :span="12"><el-form-item label="鼠标X轴坐标"><el-input v-model="mouse.width"><template slot="append">px</template></el-input></el-form-item></el-col>
+		          <el-col :span="12"><el-form-item label="鼠标Y轴坐标"><el-input v-model="mouse.height"><template slot="append">px</template></el-input></el-form-item></el-col>
+		        </el-row>
+		        <el-row>
+		          <el-col :span="24" class="wuhan-col-save"><el-form-item><el-button type="primary" icon="el-icon-document-checked" @click="formMethodTest">测试鼠标</el-button></el-form-item></el-col>
+		        </el-row>		          
+		      </el-form>
+				{{what}}
+			</div>		
+		</template>
+		
+		<template id="templateGlobal">
+			<div id="divGlobal">
+		      <el-form :model="parameter" label-width="100px" size="mini">
+		        <el-row>
+		          <el-col :span="24"><el-form-item label="程序标题"><el-input v-model="parameter.name"></el-input></el-form-item></el-col>
+		        </el-row>
+		        <el-row>
+		          <el-col :span="12"><el-form-item label="界面宽度"><el-input v-model="parameter.width"><template slot="append">px</template></el-input></el-form-item></el-col>
+		          <el-col :span="12"><el-form-item label="界面高度"><el-input v-model="parameter.height"><template slot="append">px</template></el-input></el-form-item></el-col>
+		        </el-row>
+		        <el-row>
+		          <el-col :span="24" class="wuhan-col-save"><el-form-item><el-button type="primary" icon="el-icon-document-checked" @click="formMethodSave">保存设置</el-button></el-form-item></el-col>
+		        </el-row>		          
+		      </el-form>
+				{{what}}
+			</div>		
+		</template>
+		
+		<template id="templateHelp">
+			<div id="divHelp">
+			Help
+			</div>		
+		</template>
+		
+		<!-- 主js文件最后引入 -->
+		<script type="text/javascript" src="script/whcdit-main.js"></script>
+	</body>
+</html>

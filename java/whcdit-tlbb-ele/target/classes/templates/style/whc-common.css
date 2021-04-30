@@ -1,0 +1,50 @@
+
+.whc-col-logo {
+	height: 60px; padding: 0px 0px 0px 10px; background: #FFC0CB; display: flex; align-items: center;
+}
+.whc-col-title {
+	height: 60px; background: #FFC0CB; display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-size: 36px; font-family: FangSong; font-weight: 900;
+}
+.whc-col-version {
+	height: 60px; padding: 0px 10px 0px 0px; background: #FFC0CB; display: flex; align-items: center; justify-content: flex-end; color: #FFFFFF; font-size: 14px; font-family: FangSong; font-weight: 900;
+}
+
+.whc-col-search {
+	padding: 0px 10px 0px 0px; display: flex; justify-content: flex-end;
+}
+
+.whc-dialog-button {
+	display: flex; align-items: center; justify-content: flex-end;
+}
+
+.whc-color-blue {
+	color: #409EFF;
+}
+
+.whc-color-pink {
+	color: #FFC0CB;
+}
+
+.whc-div-center {
+	width: 90vw; display: flex; align-items: center; justify-content: center;
+}
+
+.whc-div-balance {
+	width: 90%; text-align: center;
+}
+
+.el-button--pink {
+    color: #FFFFFF;
+    background-color: #FFC0CB;
+    border-color: #FFC0CB;
+}
+
+.el-button--pink:hover {
+  background: #FFFFFF;
+  border-color: #FFC0CB;
+  color: #FFC0CB;
+}
+
+.wuhan-col-save {
+    padding: 0px 10px 0px 0px; display: flex; justify-content: flex-end;
+}

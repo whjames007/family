@@ -1,0 +1,149 @@
+INFO main com.whcdit.tlbb.WhcditMain - 【程序启动】
+INFO JavaFX Application Thread com.whcdit.tlbb.service.impl.FileService - WhcditParameter [name=街道口的风, width=600, height=800]
+INFO JavaFX Application Thread com.whcdit.tlbb.WhcditMain - 【回调已经成功】
+INFO main com.whcdit.tlbb.WhcditMain - 【程序关闭】
+INFO main com.whcdit.tlbb.WhcditMain - 【程序启动】
+INFO JavaFX Application Thread com.whcdit.tlbb.service.impl.FileService - WhcditParameter [name=街道口的风, width=600, height=800]
+INFO JavaFX Application Thread com.whcdit.tlbb.WhcditMain - 键盘监听
+INFO JavaFX Application Thread com.whcdit.tlbb.WhcditMain - 【回调已经成功】
+INFO main com.whcdit.tlbb.WhcditMain - 【程序关闭】
+INFO main com.whcdit.tlbb.WhcditMain - 【程序启动】
+INFO JavaFX Application Thread com.whcdit.tlbb.service.impl.FileService - WhcditParameter [name=街道口的风, width=600, height=800]
+INFO JavaFX Application Thread com.whcdit.tlbb.service.impl.WhcditBridgeService - 键盘监听
+INFO main com.whcdit.tlbb.WhcditMain - 【程序关闭】
+INFO main com.whcdit.tlbb.WhcditMain - 【程序启动】
+INFO JavaFX Application Thread com.whcdit.tlbb.service.impl.FileService - WhcditParameter [name=街道口的风, width=600, height=800]
+INFO JavaFX Application Thread com.whcdit.tlbb.service.impl.WhcditBridgeService - 键盘监听
+INFO JavaFX Application Thread com.whcdit.tlbb.service.impl.WhcditBridgeService - 键盘开始监听
+INFO JavaFX Application Thread com.whcdit.tlbb.WhcditMain - 【回调已经成功】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.WhcditBridgeService - 单D
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.WhcditBridgeService - 单D
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.WhcditBridgeService - 单D
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.WhcditBridgeService - 单D
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.WhcditBridgeService - (Shift+Ctrl+D)
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.WhcditBridgeService - 单D
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.WhcditBridgeService - 单D
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.WhcditBridgeService - 单D
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.WhcditBridgeService - 单D
+INFO main com.whcdit.tlbb.WhcditMain - 【程序关闭】
+INFO main com.whcdit.tlbb.WhcditMain - 【程序启动】
+INFO JavaFX Application Thread com.whcdit.tlbb.service.impl.FileService - WhcditParameter [name=街道口的风, width=600, height=800]
+INFO main com.whcdit.tlbb.WhcditMain - 【程序关闭】
+INFO main com.whcdit.tlbb.WhcditMain - 【程序启动】
+INFO JavaFX Application Thread com.whcdit.tlbb.service.impl.FileService - WhcditParameter [name=街道口的风, width=600, height=800]
+INFO JavaFX Application Thread com.whcdit.tlbb.service.impl.RobotService - 【开始监听键盘】【Ctrl+Shift+R=运行】【Ctrl+Shift+S=停止】
+INFO JavaFX Application Thread com.whcdit.tlbb.WhcditMain - 【回调已经成功】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+R=运行】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+R=运行】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+R=运行】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+R=运行】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+R=运行】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+R=运行】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+R=运行】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+S=停止】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+S=停止】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+S=停止】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+S=停止】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+S=停止】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+S=停止】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+S=停止】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+S=停止】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+S=停止】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+S=停止】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+S=停止】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+S=停止】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+R=运行】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+R=运行】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+S=停止】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+S=停止】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+R=运行】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+S=停止】
+INFO main com.whcdit.tlbb.WhcditMain - 【程序启动】
+INFO JavaFX Application Thread com.whcdit.tlbb.service.impl.FileService - WhcditParameter [name=街道口的风, width=600, height=800]
+INFO main com.whcdit.tlbb.WhcditMain - 【程序关闭】
+INFO main com.whcdit.tlbb.WhcditMain - 【程序关闭】
+INFO main com.whcdit.tlbb.WhcditMain - 【程序启动】
+INFO JavaFX Application Thread com.whcdit.tlbb.service.impl.FileService - WhcditParameter [name=街道口的风, width=600, height=800]
+INFO main com.whcdit.tlbb.WhcditMain - 【程序关闭】
+INFO main com.whcdit.tlbb.WhcditMain - 【程序启动】
+INFO JavaFX Application Thread com.whcdit.tlbb.service.impl.FileService - WhcditParameter [name=街道口的风, width=600, height=800]
+INFO JavaFX Application Thread com.whcdit.tlbb.service.impl.RobotService - 【开始监听键盘】【Ctrl+Shift+R=运行】【Ctrl+Shift+S=停止】
+INFO JavaFX Application Thread com.whcdit.tlbb.WhcditMain - 【回调已经成功】
+INFO main com.whcdit.tlbb.WhcditMain - 【程序关闭】
+INFO main com.whcdit.tlbb.WhcditMain - 【程序启动】
+INFO JavaFX Application Thread com.whcdit.tlbb.service.impl.FileService - WhcditParameter [name=街道口的风, width=600, height=800]
+INFO JavaFX Application Thread com.whcdit.tlbb.service.impl.RobotService - 【开始监听键盘】【Ctrl+Shift+R=运行】【Ctrl+Shift+S=停止】
+INFO JavaFX Application Thread com.whcdit.tlbb.WhcditMain - 【回调已经成功】
+INFO main com.whcdit.tlbb.WhcditMain - 【程序关闭】
+INFO main com.whcdit.tlbb.WhcditMain - 【程序启动】
+INFO JavaFX Application Thread com.whcdit.tlbb.service.impl.FileService - WhcditParameter [name=街道口的风, width=600, height=800]
+INFO JavaFX Application Thread com.whcdit.tlbb.service.impl.RobotService - 【开始监听键盘】【Ctrl+Shift+R=运行】【Ctrl+Shift+S=停止】
+INFO JavaFX Application Thread com.whcdit.tlbb.WhcditMain - 【回调已经成功】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+S=停止】【停止运行】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+S=停止】【停止运行】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+S=停止】【停止运行】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+R=运行】【正在运行中，请不要重复操作】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+R=运行】【正在运行中，请不要重复操作】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+R=运行】【正在运行中，请不要重复操作】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+R=运行】【正在运行中，请不要重复操作】
+INFO main com.whcdit.tlbb.WhcditMain - 【程序关闭】
+INFO main com.whcdit.tlbb.WhcditMain - 【程序启动】
+INFO JavaFX Application Thread com.whcdit.tlbb.service.impl.FileService - WhcditParameter [name=街道口的风, width=600, height=800]
+INFO main com.whcdit.tlbb.WhcditMain - 【程序启动】
+INFO JavaFX Application Thread com.whcdit.tlbb.service.impl.FileService - WhcditParameter [name=街道口的风, width=600, height=800]
+INFO JavaFX Application Thread com.whcdit.tlbb.service.impl.RobotService - 【开始监听键盘】【Ctrl+Shift+R=运行】【Ctrl+Shift+S=停止】
+INFO JavaFX Application Thread com.whcdit.tlbb.WhcditMain - 【回调已经成功】
+INFO main com.whcdit.tlbb.WhcditMain - 【程序关闭】
+INFO main com.whcdit.tlbb.WhcditMain - 【程序启动】
+INFO JavaFX Application Thread com.whcdit.tlbb.service.impl.FileService - WhcditParameter [name=街道口的风, width=600, height=800]
+INFO JavaFX Application Thread com.whcdit.tlbb.WhcditMain - 【回调已经成功】
+INFO main com.whcdit.tlbb.WhcditMain - 【程序关闭】
+INFO main com.whcdit.tlbb.WhcditMain - 【程序启动】
+INFO main com.whcdit.tlbb.WhcditMain - 【程序启动】
+INFO JavaFX Application Thread com.whcdit.tlbb.service.impl.FileService - WhcditParameter [name=街道口的风, width=600, height=800]
+INFO JavaFX Application Thread com.whcdit.tlbb.WhcditMain - 【回调已经成功】
+INFO main com.whcdit.tlbb.WhcditMain - 【程序启动】
+INFO JavaFX Application Thread com.whcdit.tlbb.service.impl.FileService - WhcditParameter [name=街道口的风, width=600, height=800]
+INFO JavaFX Application Thread com.whcdit.tlbb.service.impl.RobotService - 【开始监听键盘】【Ctrl+Shift+R=运行】【Ctrl+Shift+S=停止】
+INFO JavaFX Application Thread com.whcdit.tlbb.WhcditMain - 【回调已经成功】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+R=运行】【开始运行】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+R=运行】【正在运行中，请不要重复操作】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+R=运行】【正在运行中，请不要重复操作】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+R=运行】【正在运行中，请不要重复操作】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+S=停止】【停止运行】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+S=停止】【当前已经是停止状态，请不要重复操作】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+S=停止】【当前已经是停止状态，请不要重复操作】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+S=停止】【当前已经是停止状态，请不要重复操作】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+S=停止】【当前已经是停止状态，请不要重复操作】
+INFO main com.whcdit.tlbb.WhcditMain - 【程序启动】
+INFO JavaFX Application Thread com.whcdit.tlbb.service.impl.FileService - WhcditParameter [name=街道口的风, width=600, height=800]
+INFO JavaFX Application Thread com.whcdit.tlbb.service.impl.RobotService - 【开始监听键盘】【Ctrl+Shift+R=运行】【Ctrl+Shift+S=停止】
+INFO JavaFX Application Thread com.whcdit.tlbb.WhcditMain - 【回调已经成功】
+INFO main com.whcdit.tlbb.WhcditMain - 【程序关闭】
+INFO main com.whcdit.tlbb.WhcditMain - 【程序启动】
+INFO JavaFX Application Thread com.whcdit.tlbb.service.impl.FileService - WhcditParameter [name=街道口的风, width=600, height=800]
+INFO JavaFX Application Thread com.whcdit.tlbb.service.impl.RobotService - 【开始监听键盘】【Ctrl+Shift+R=运行】【Ctrl+Shift+S=停止】
+INFO JavaFX Application Thread com.whcdit.tlbb.WhcditMain - 【回调已经成功】
+INFO JavaFX Application Thread com.whcdit.tlbb.WhcditMain - 【用户直接关闭了程序窗口】
+INFO main com.whcdit.tlbb.WhcditMain - 【程序关闭】
+INFO main com.whcdit.tlbb.WhcditMain - 【程序启动】
+INFO JavaFX Application Thread com.whcdit.tlbb.service.impl.FileService - WhcditParameter [name=街道口的风, width=600, height=800]
+INFO JavaFX Application Thread com.whcdit.tlbb.service.impl.RobotService - 【开始监听键盘】【Ctrl+Shift+R=运行】【Ctrl+Shift+S=停止】
+INFO JavaFX Application Thread com.whcdit.tlbb.WhcditMain - 【回调已经成功】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+S=停止】【停止运行】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+S=停止】【当前已经是停止状态，请不要重复操作】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+S=停止】【当前已经是停止状态，请不要重复操作】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+S=停止】【当前已经是停止状态，请不要重复操作】
+INFO AWT-EventQueue-0 com.whcdit.tlbb.service.impl.RobotService - 【Ctrl+Shift+S=停止】【当前已经是停止状态，请不要重复操作】
+INFO main com.whcdit.tlbb.WhcditMain - 【程序启动】
+INFO JavaFX Application Thread com.whcdit.tlbb.service.impl.FileService - WhcditParameter [name=街道口的风, width=600, height=800]
+INFO JavaFX Application Thread com.whcdit.tlbb.service.impl.RobotService - 【开始监听键盘】【Ctrl+Shift+R=运行】【Ctrl+Shift+S=停止】
+INFO JavaFX Application Thread com.whcdit.tlbb.WhcditMain - 【回调已经成功】
+INFO JavaFX Application Thread com.whcdit.tlbb.WhcditMain - 【用户直接关闭了程序窗口】
+INFO main com.whcdit.tlbb.WhcditMain - 【程序关闭】
+INFO main com.whcdit.tlbb.WhcditMain - 【程序启动】
+INFO JavaFX Application Thread com.whcdit.tlbb.service.impl.FileService - WhcditParameter [name=街道口的风, width=600, height=800]
+INFO main com.whcdit.tlbb.WhcditMain - 【程序启动】
+INFO JavaFX Application Thread com.whcdit.tlbb.service.impl.FileService - WhcditParameter [name=街道口的风, width=600, height=800]
+INFO main com.whcdit.tlbb.WhcditMain - 【程序启动】
+INFO JavaFX Application Thread com.whcdit.tlbb.service.impl.FileService - WhcditParameter [name=街道口的风, width=600, height=800]

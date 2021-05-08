@@ -12,6 +12,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.whcdit.tlbb.model.WhcditParameter;
 import com.whcdit.tlbb.service.IFileService;
+import com.whcdit.tlbb.utils.WhcditBufferCache;
 import com.whcdit.tlbb.utils.WhcditConstants;
 
  
@@ -45,8 +46,8 @@ private Gson gson = new GsonBuilder().setPrettyPrinting().create();
 			}
 			fr.close();
 			WhcditParameter wcp = gson.fromJson(sbf.toString(), WhcditParameter.class);
-			WhcditConstants.wcp = wcp;
-			logger.info(WhcditConstants.wcp.toString());
+			WhcditBufferCache.wcp = wcp;
+			logger.info(WhcditBufferCache.wcp.toString());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -55,7 +56,7 @@ private Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
 	@Override
 	public WhcditParameter read() {
-		return WhcditConstants.wcp;
+		return WhcditBufferCache.wcp;
 	}
 
 	@Override
@@ -64,7 +65,7 @@ private Gson gson = new GsonBuilder().setPrettyPrinting().create();
 			String json = gson.toJson(wcp);
 			fw.write(json);
 			fw.close();
-			WhcditConstants.wcp = wcp;
+			WhcditBufferCache.wcp = wcp;
 	}
 
 	 

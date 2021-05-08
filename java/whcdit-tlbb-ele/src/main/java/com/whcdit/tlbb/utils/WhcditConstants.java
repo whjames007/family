@@ -1,12 +1,14 @@
 package com.whcdit.tlbb.utils;
 
-import com.whcdit.tlbb.model.WhcditParameter;
-
 public class WhcditConstants {
 	
-	public static WhcditParameter wcp = null;
-	
 	public static final String PARAM_PATH_NAME = "./tlbb.ini"; 
+	
+	public static final int GLOBAL_HOT_KEY_RUN = 1;
+
+	public static final int GLOBAL_HOT_KEY_STOP = 2;
+	
+	public static final String SNULL = "SNULL";
 	
 	/**
 	 * 【成功】【宋鹏-18091】【武汉】【2019-08-23】
@@ -17,6 +19,10 @@ public class WhcditConstants {
 	 * 【失败】【宋鹏-18091】【武汉】【2019-08-23】
 	 */
 	public static final String FAILURE = "FAILURE";
+	
+	public static final String RUN = "RUN";
+	
+	public static final String STOP = "STOP";
 
 
 	/**

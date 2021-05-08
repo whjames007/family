@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 import com.whcdit.tlbb.model.WhcditParameter;
 import com.whcdit.tlbb.service.IWhcditBridgeService;
 import com.whcdit.tlbb.service.impl.WhcditBridgeService;
-import com.whcdit.tlbb.utils.WhcditConstants;
+import com.whcdit.tlbb.utils.WhcditBufferCache;
 
 import javafx.application.Application;
 import javafx.concurrent.Worker;
@@ -29,13 +29,16 @@ public class WhcditMain extends Application {
 	public static void main(String[] args) {
 		logger.info("【程序启动】");
 		launch(args);
+//		JIntellitype.getInstance().unregisterHotKey(WhcditConstants.GLOBAL_HOT_KEY_RUN);
+//		JIntellitype.getInstance().unregisterHotKey(WhcditConstants.GLOBAL_HOT_KEY_STOP);
 		logger.info("【程序关闭】");
 	}
 
 	@Override
 	public void start(Stage stage) throws Exception {
 		whcditBridgeService.initParameter();
-		WhcditParameter wcp = WhcditConstants.wcp;
+		whcditBridgeService.initKeyboardListener();
+		WhcditParameter wcp = WhcditBufferCache.wcp;
 		stage.setTitle(wcp.getName());
 		stage.getIcons().add(new Image("/templates/image/logobmw.png"));
 		BorderPane root = new BorderPane();
@@ -46,7 +49,6 @@ public class WhcditMain extends Application {
 		final WebEngine webEngine = webView.getEngine();
 //		webEngine.load("http://192.168.20.197:27000");
 		URL url = this.getClass().getResource("/templates/index.html");
-//		url = this.getClass().getResource("/dist/index.html");
 		webEngine.load(url.toString());
 		webEngine.getLoadWorker().stateProperty().addListener((obs, oldValue, newValue) -> {
 			if (newValue == Worker.State.SUCCEEDED) {
@@ -59,6 +61,10 @@ public class WhcditMain extends Application {
 		});
 		scene.setRoot(webView);
 		stage.setScene(scene);
+		stage.setOnCloseRequest(e -> {
+			logger.info("【用户直接关闭了程序窗口】");
+			stage.close();
+		});
 		stage.show();
 	}
 

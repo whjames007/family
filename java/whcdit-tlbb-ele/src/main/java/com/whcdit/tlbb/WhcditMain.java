@@ -47,12 +47,14 @@ public class WhcditMain extends Application {
 		final WebView webView = new WebView();
 
 		final WebEngine webEngine = webView.getEngine();
+		WhcditBufferCache.webEngine = webEngine;
 //		webEngine.load("http://192.168.20.197:27000");
 		URL url = this.getClass().getResource("/templates/index.html");
 		webEngine.load(url.toString());
 		webEngine.getLoadWorker().stateProperty().addListener((obs, oldValue, newValue) -> {
 			if (newValue == Worker.State.SUCCEEDED) {
 				JSObject jsobj = (JSObject) webEngine.executeScript("window");
+				// 设置后台接口
 				jsobj.setMember("BRIDGE", whcditBridgeService);
 				logger.info("【回调已经成功】");
 			} else {

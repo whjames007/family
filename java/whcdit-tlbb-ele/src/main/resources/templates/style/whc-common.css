@@ -45,6 +45,6 @@
   color: #FFC0CB;
 }
 
-.wuhan-col-save {
-    padding: 0px 10px 0px 0px; display: flex; justify-content: flex-end;
+.wuhan-col-right {
+    padding: 10px 10px 10px 10px; display: flex; justify-content: flex-end;
 }

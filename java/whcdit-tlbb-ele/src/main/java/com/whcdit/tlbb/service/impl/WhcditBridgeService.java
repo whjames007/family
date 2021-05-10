@@ -12,6 +12,7 @@ import com.whcdit.tlbb.model.WhcditParameter;
 import com.whcdit.tlbb.service.IFileService;
 import com.whcdit.tlbb.service.IRobotService;
 import com.whcdit.tlbb.service.IWhcditBridgeService;
+import com.whcdit.tlbb.utils.WhcditBufferCache;
 import com.whcdit.tlbb.utils.WhcditConstants;
 import com.whcdit.tlbb.utils.WhcditResponse;
 
@@ -46,12 +47,37 @@ public class WhcditBridgeService implements IWhcditBridgeService {
 
 	@Override
 	public String saveParameter(String json) {
-		logger.info(json);
 		WhcditParameter wcp = gson.fromJson(json, WhcditParameter.class);
 		try {
 			fileService.writer(wcp);
 			res.buildSuccess(json, null, null);
 		} catch (IOException e) {
+			e.printStackTrace();
+			res.buildFailure(WhcditConstants.WUHAN_RESPONSE_20001, e.getMessage());
+		}
+		return gson.toJson(res);
+	}
+
+	@Override
+	public String grant(String param) {
+		try {
+			WhcditBufferCache.chmap.put(1, param);
+			res.buildSuccess(null, null, null);
+		} catch (Exception e) {
+			e.printStackTrace();
+			res.buildFailure(WhcditConstants.WUHAN_RESPONSE_20001, e.getMessage());
+		}
+		return gson.toJson(res);
+	}
+
+	@Override
+	public String testMouse(String param) {
+		logger.info(param);
+		try {
+			String mtmp = "【测试鼠标】【%s】";
+			robotService.workMouse(mtmp, param);
+			res.buildSuccess(null, null, null);
+		} catch (Exception e) {
 			e.printStackTrace();
 			res.buildFailure(WhcditConstants.WUHAN_RESPONSE_20001, e.getMessage());
 		}

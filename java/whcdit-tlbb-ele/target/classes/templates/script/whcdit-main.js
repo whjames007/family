@@ -1,31 +1,18 @@
-var componentShow = {
-    template: $("#templateShow").html(),
-	data: function(){
-	    return{
-	    }
-	},
-	mounted () {
-	},
-	methods: {
-	}
-}
 
 var componentGame = {
     template: $("#templateGame").html(),
 	data: function(){
 	    return{
-			mouse: {},
+			parameter: {mousex: 500, mousey: 500, stepx: 50, stepy: 50, loops: 2},
 			what: null
 	    }
 	},
 	mounted () {
+		let json = window.BRIDGE.readParameter()
+		this.parameter = JSON.parse(json)
 	},
 	methods: {
-		formMethodTest() {
-	    	let json = JSON.stringify(this.mouse)
-this.what = '这次是我真的决定离开，'
-			/*let res = window.BRIDGE.saveParameter(json)
-			whcditMethods.response(res, this)*/
+		gameMethodTest() {
 	    }
 	}
 }
@@ -43,10 +30,10 @@ var componentGlobal = {
 		this.parameter = JSON.parse(json)
 	},
 	methods: {
-		formMethodSave() {
+		globMethodSave() {
 	    	let json = JSON.stringify(this.parameter)
 			let res = window.BRIDGE.saveParameter(json)
-			whcditMethods.response(res, this)
+			whcditMethods.response(res, this, '【保存设置成功】')
 	    }
 	}
 }
@@ -85,16 +72,15 @@ var whcditVue = new Vue({
 		tabMethodClick (tab, event) { this.$router.push({name: tab.name}) }
 	}
 })
+
 var respPrefix = 'WUHAN_RESPONSE_'
+
 var whcditMethods = {
-	response (json, myself) {
+	response (json, myself, msg) {
 		var obj = JSON.parse(json)
+		if (!msg) { msg = '您好，操作成功了！' }
 		myself.what = obj
-		if (obj.code == respPrefix + '10000') {
-			myself.$message.success('您好，保存成功！')
-		} else {
-			myself.$message.error(obj.code)
-		}
+		if (obj.code == respPrefix + '10000') { myself.$message.success(msg) } else { myself.$message.error(obj.code) }
 	},
 	aaa () {}
 }

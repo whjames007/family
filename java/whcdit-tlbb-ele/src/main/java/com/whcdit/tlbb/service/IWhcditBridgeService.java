@@ -9,5 +9,9 @@ public interface IWhcditBridgeService {
 	public String readParameter();
 
 	public String saveParameter(String json);
+	
+	public String grant(String param);
+	
+	public String testMouse(String param);
 
 }

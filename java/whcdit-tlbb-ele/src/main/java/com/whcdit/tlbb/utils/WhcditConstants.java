@@ -20,6 +20,10 @@ public class WhcditConstants {
 	 */
 	public static final String FAILURE = "FAILURE";
 	
+	public static final String ENABLE = "ENABLE";
+	
+	public static final String DISABLE = "DISABLE";
+	
 	public static final String RUN = "RUN";
 	
 	public static final String STOP = "STOP";

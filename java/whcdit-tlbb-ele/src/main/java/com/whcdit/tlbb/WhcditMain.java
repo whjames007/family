@@ -64,8 +64,9 @@ public class WhcditMain extends Application {
 		scene.setRoot(webView);
 		stage.setScene(scene);
 		stage.setOnCloseRequest(e -> {
-			logger.info("【用户直接关闭了程序窗口】");
 			stage.close();
+			Runtime.getRuntime().exit(0);
+			logger.info("【用户关闭了程序窗口，后台将退出运行时环境】");
 		});
 		stage.show();
 	}

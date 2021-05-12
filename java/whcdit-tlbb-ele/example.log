@@ -550,3 +550,16 @@ INFO JavaFX Application Thread com.whcdit.tlbb.service.impl.RobotService - 【�
 INFO JavaFX Application Thread com.whcdit.tlbb.WhcditMain - 【回调已经成功】
 INFO JavaFX Application Thread com.whcdit.tlbb.WhcditMain - 【用户直接关闭了程序窗口】
 INFO main com.whcdit.tlbb.WhcditMain - 【程序关闭】
+INFO main com.whcdit.tlbb.WhcditMain - 【程序启动】
+INFO JavaFX Application Thread com.whcdit.tlbb.service.impl.FileService - WhcditParameter [name=街道口的风, width=500, height=800, mousex=333, mousey=333, stepx=50, stepy=50, loops=3]
+INFO JavaFX Application Thread com.whcdit.tlbb.service.impl.RobotService - 【开始监听键盘】【Ctrl+Shift+R=运行】【Ctrl+Shift+S=停止】
+INFO JavaFX Application Thread com.whcdit.tlbb.WhcditMain - 【回调已经成功】
+INFO JavaFX Application Thread com.whcdit.tlbb.WhcditMain - 【用户直接关闭了程序窗口】
+INFO main com.whcdit.tlbb.WhcditMain - 【程序启动】
+INFO JavaFX Application Thread com.whcdit.tlbb.service.impl.FileService - WhcditParameter [name=街道口的风, width=500, height=800, mousex=333, mousey=333, stepx=50, stepy=50, loops=3]
+INFO JavaFX Application Thread com.whcdit.tlbb.service.impl.RobotService - 【开始监听键盘】【Ctrl+Shift+R=运行】【Ctrl+Shift+S=停止】
+INFO JavaFX Application Thread com.whcdit.tlbb.WhcditMain - 【回调已经成功】
+INFO main com.whcdit.tlbb.WhcditMain - 【程序启动】
+INFO JavaFX Application Thread com.whcdit.tlbb.service.impl.FileService - WhcditParameter [name=街道口的风, width=500, height=800, mousex=333, mousey=333, stepx=50, stepy=50, loops=3]
+INFO JavaFX Application Thread com.whcdit.tlbb.service.impl.RobotService - 【开始监听键盘】【Ctrl+Shift+R=运行】【Ctrl+Shift+S=停止】
+INFO JavaFX Application Thread com.whcdit.tlbb.WhcditMain - 【回调已经成功】

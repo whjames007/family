@@ -9,7 +9,12 @@ public class WhcditParameter {
 	private Integer mousey;
 	private Integer stepx;
 	private Integer stepy;
+	private Integer movex;
+	private Integer movey;
 	private Integer loops;
+	private Integer secs;
+	
+	private String wkey;
 	
 	
 	@Override
@@ -65,6 +70,38 @@ public class WhcditParameter {
 	}
 	public void setLoops(Integer loops) {
 		this.loops = loops;
+	}
+
+	public Integer getMovex() {
+		return movex;
+	}
+
+	public void setMovex(Integer movex) {
+		this.movex = movex;
+	}
+
+	public Integer getMovey() {
+		return movey;
+	}
+
+	public void setMovey(Integer movey) {
+		this.movey = movey;
+	}
+
+	public String getWkey() {
+		return wkey;
+	}
+
+	public void setWkey(String wkey) {
+		this.wkey = wkey;
+	}
+
+	public Integer getSecs() {
+		return secs;
+	}
+
+	public void setSecs(Integer secs) {
+		this.secs = secs;
 	}
 	
 	

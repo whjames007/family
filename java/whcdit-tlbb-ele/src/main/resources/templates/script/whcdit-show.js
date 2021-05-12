@@ -9,7 +9,7 @@ var componentShow = {
 	mounted () {
 		let myself = this
 		// 定义将被后台调用的前端方法
-		window.jsshowMethodPush = function (val) {
+		window.showWindowPush = function (val) {
 			myself.showMethodPush(val)
 			// return '湖北省' + val
 		}
@@ -22,6 +22,7 @@ var componentShow = {
 		},
 		showMethodPush (val) {
 			let item = {msg: val}
+			if (this.logs.length > 30) { this.logs = [] }
 			this.logs.push(item)
 			let last = this.logs.length - 1
 			this.$refs.logsTable.setCurrentRow(this.logs[last]) // 表格选中最后一行

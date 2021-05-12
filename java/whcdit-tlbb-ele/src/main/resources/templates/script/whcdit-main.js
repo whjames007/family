@@ -3,8 +3,8 @@ var componentGame = {
     template: $("#templateGame").html(),
 	data: function(){
 	    return{
-			parameter: {mousex: 500, mousey: 500, stepx: 50, stepy: 50, loops: 2},
-			what: null
+			parameter: {},
+			what: '暂无内容！'
 	    }
 	},
 	mounted () {

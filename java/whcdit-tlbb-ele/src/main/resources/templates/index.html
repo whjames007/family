@@ -30,9 +30,9 @@
 		
 		<template id="templateShow">
 			<div id="divShow">
-				<div class="wuhan-col-right"><el-button type="primary" size="mini" icon="el-icon-document-checked" @click="showMethodGrant">授权按钮</el-button></div>
-				<el-table id="logsTable" :data="logs" ref="logsTable" border stripe highlight-current-row>
-					<el-table-column prop="length" label="序号" type="index" width="100"></el-table-column>
+				<div class="wuhan-col-right"><el-button type="pink" size="mini" icon="el-icon-document-checked" @click="showMethodGrant">授权按钮</el-button></div>
+				<el-table id="logsTable" :data="logs" ref="logsTable" border stripe highlight-current-row size="mini">
+					<el-table-column prop="length" label="序号" type="index" width="60"></el-table-column>
 					<el-table-column prop="msg" label="操作内容" show-overflow-tooltip/>
 				</el-table>
 				<div id ="divShowFoot" style="margin: 80px 0px 0px 0px;"></div><!-- {{what}} -->
@@ -42,22 +42,6 @@
 		
 		<template id="templateGame">
 			<div id="divGame">
-		      <el-form :model="parameter" label-width="100px" size="mini">
-		        <el-row>
-		          <el-col :span="12"><el-form-item label="X轴起始坐标"><el-input v-model="parameter.mousex"><template slot="append">px</template></el-input></el-form-item></el-col>
-		          <el-col :span="12"><el-form-item label="Y轴起始坐标"><el-input v-model="parameter.mousey"><template slot="append">px</template></el-input></el-form-item></el-col>
-		        </el-row>
-		        <el-row>
-		          <el-col :span="12"><el-form-item label="X轴步长"><el-input v-model="parameter.stepx"><template slot="append">px</template></el-input></el-form-item></el-col>
-		          <el-col :span="12"><el-form-item label="Y轴步长"><el-input v-model="parameter.stepy"><template slot="append">px</template></el-input></el-form-item></el-col>
-		        </el-row>
-		        <el-row>
-		          <el-col :span="24"><el-form-item label="循环次数"><el-input v-model="parameter.loops"></el-input></el-form-item></el-col>
-		        </el-row>
-		        <el-row>
-		          <el-col :span="24" class="wuhan-col-right"><el-form-item><el-button type="primary" icon="el-icon-document-checked" @click="gameMethodTest">测试鼠标</el-button></el-form-item></el-col>
-		        </el-row>		          
-		      </el-form>
 				{{what}}
 			</div>		
 		</template>
@@ -73,7 +57,7 @@
 		          <el-col :span="12"><el-form-item label="程序界面高度"><el-input v-model="parameter.height"><template slot="append">px</template></el-input></el-form-item></el-col>
 		        </el-row>
 		        <el-row>
-		          <el-col :span="24" class="wuhan-col-right"><el-form-item><el-button type="primary" icon="el-icon-document-checked" @click="globMethodSave">保存程序设置</el-button></el-form-item></el-col>
+		          <el-col :span="24" class="wuhan-col-right"><el-form-item><el-button type="pink" icon="el-icon-document-checked" @click="globMethodSave">保存程序设置</el-button></el-form-item></el-col>
 		        </el-row>
 		        <el-row>
 		          <el-col :span="12"><el-form-item label="X轴起始坐标"><el-input v-model="parameter.mousex"><template slot="append">px</template></el-input></el-form-item></el-col>
@@ -84,13 +68,22 @@
 		          <el-col :span="12"><el-form-item label="Y轴移动步长"><el-input v-model="parameter.stepy"><template slot="append">px</template></el-input></el-form-item></el-col>
 		        </el-row>
 		        <el-row>
-		          <el-col :span="24"><el-form-item label="循环操作次数"><el-input v-model="parameter.loops"></el-input></el-form-item></el-col>
+		        <el-row>
+		          <el-col :span="12"><el-form-item label="X轴移动次数"><el-input v-model="parameter.movex"><template slot="append">次</template></el-input></el-form-item></el-col>
+		          <el-col :span="12"><el-form-item label="Y轴移动次数"><el-input v-model="parameter.movey"><template slot="append">次</template></el-input></el-form-item></el-col>
 		        </el-row>
 		        <el-row>
-		          <el-col :span="24" class="wuhan-col-right"><el-form-item><el-button type="primary" icon="el-icon-document-checked" @click="globMethodSave">保存鼠标设置</el-button></el-form-item></el-col>
+		          <el-col :span="24"><el-form-item label="鼠标选键"><el-radio-group v-model="parameter.wkey"><el-radio label="LEFT" border>左键</el-radio><el-radio label="RIGHT" border>右键</el-radio></el-radio-group></el-form-item></el-col>
+		        </el-row>
+		        <el-row>
+		          <el-col :span="12"><el-form-item label="循环操作次数"><el-input v-model="parameter.loops"><template slot="append">次</template></el-input></el-form-item></el-col>
+		          <el-col :span="12"><el-form-item label="移动间隔时间"><el-input v-model="parameter.secs"><template slot="append">秒</template></el-input></el-form-item></el-col>
+		        </el-row>
+		        <el-row>
+		          <el-col :span="24" class="wuhan-col-right"><el-form-item><el-button type="pink" icon="el-icon-document-checked" @click="globMethodSave">保存鼠标设置</el-button></el-form-item></el-col>
 		        </el-row>
 		      </el-form>
-				{{what}}
+				<!-- {{what}} -->
 			</div>		
 		</template>
 		

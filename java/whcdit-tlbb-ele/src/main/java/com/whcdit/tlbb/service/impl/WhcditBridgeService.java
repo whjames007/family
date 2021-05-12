@@ -75,8 +75,7 @@ public class WhcditBridgeService implements IWhcditBridgeService {
 		logger.info(param);
 		try {
 			String mtmp = "【测试鼠标】【%s】";
-			robotService.workMouse(mtmp, param);
-			res.buildSuccess(null, null, null);
+			res.buildSuccess(mtmp, null, null);
 		} catch (Exception e) {
 			e.printStackTrace();
 			res.buildFailure(WhcditConstants.WUHAN_RESPONSE_20001, e.getMessage());

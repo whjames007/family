@@ -27,6 +27,10 @@ public class WhcditConstants {
 	public static final String RUN = "RUN";
 	
 	public static final String STOP = "STOP";
+	
+	public static final String LEFT = "LEFT";
+	
+	public static final String RIGHT = "RIGHT";
 
 
 	/**
